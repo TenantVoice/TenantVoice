@@ -8,8 +8,8 @@ exports.up = function (knex) {
         table.string('category').notNullable();
         table.timestamp('created_at').notNullable().defaultTo(knex.fn.now());
         table.boolean('previously_reported').notNullable();
-        table.string('description').notNullable();
-        table.binary('picture').notNullable();
+        table.text('description').notNullable();
+        table.binary('picture').defaultTo('default_image');
     })
 };
 
