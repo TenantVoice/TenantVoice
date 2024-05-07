@@ -70,4 +70,11 @@ class User {
   }
 }
 
+const main = async () => {
+  const listOfUsers = await User.list();
+  console.log(listOfUsers);
+}
+
+main();
+
 module.exports = User;
