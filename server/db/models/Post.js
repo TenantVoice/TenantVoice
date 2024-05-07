@@ -20,3 +20,5 @@ class Post {
         return rows;
     }
 }
+
+module.exports = Post;
