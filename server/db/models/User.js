@@ -43,20 +43,13 @@ class User {
     return user ? new User(user) : null;
   }
 
-  static async getEmail(id) {
-    const query = `SELECT email FROM users WHERE id = ?`
-    const { rows } = await knex.raw(query, [id])
-
-    return rows
-  }
-
-  static async create(username, email, password) {
+  static async create(username, email, location, password) {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await authUtils.hashPassword(password);
 
-    const query = `INSERT INTO users (username, password_hash)
+    const query = `INSERT INTO users (username, email, location password_hash)
       VALUES (?, ?) RETURNING *`;
-    const { rows } = await knex.raw(query, [username, email, passwordHash]);
+    const { rows } = await knex.raw(query, [username, email, location, passwordHash]);
     const user = rows[0];
     return new User(user);
   }
