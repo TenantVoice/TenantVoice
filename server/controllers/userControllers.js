@@ -35,6 +35,6 @@ exports.updateUser = async (req, res) => {
   if (!isAuthorized(id, req.session)) return res.sendStatus(403);
 
   const updatedUser = await User.update(id, username);
-  if (!updatedUser) return res.sendStatus(404)
+  if (!updatedUser) return res.sendStatus(404);
   res.send(updatedUser);
 };
