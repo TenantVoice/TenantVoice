@@ -10,7 +10,9 @@ export default function SignUpPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   // We could also use a single state variable for the form data:
   // const [formData, setFormData] = useState({ username: '', password: '' });
   // What would be the pros and cons of that?
@@ -20,9 +22,9 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
-    if (!username || !password) return setErrorText('Missing username or password');
+    if (!username || !email || !password) return setErrorText('Missing username or password or email');
 
-    const [user, error] = await createUser({ username, password });
+    const [user, error] = await createUser({ username, email, password });
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
@@ -32,6 +34,7 @@ export default function SignUpPage() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === 'username') setUsername(value);
+    if (name === 'email') setEmail(value)
     if (name === 'password') setPassword(value);
   };
 
@@ -48,6 +51,8 @@ export default function SignUpPage() {
         onChange={handleChange}
         value={username}
       />
+      <label htmlFor="email">email</label>
+      <input type="text" id="email" name="email" />
 
       <label htmlFor="password">Password</label>
       <input
@@ -66,7 +71,7 @@ export default function SignUpPage() {
 
       <button>Sign Up Now!</button>
     </form>
-    { !!errorText && <p>{errorText}</p> }
+    {!!errorText && <p>{errorText}</p>}
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
   </>;
 }
