@@ -1,8 +1,8 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
-exports.seed = async function (knex) {
+exports.seed = async (knex) => {
   // Deletes ALL existing entries
   await knex('locations').del();
 
@@ -24,6 +24,6 @@ exports.seed = async function (knex) {
       neighborhood: "Upper West Side",
       complex: "Amsterdam Houses",
       building: 7,
-    }
+    },
   ]);
 };
