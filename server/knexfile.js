@@ -4,7 +4,7 @@ const path = require('path');
 const migrationsDirectory = path.join(__dirname, 'db/migrations');
 const seedsDirectory = path.join(__dirname, '/db/seeds');
 
-/* 
+/*
 We'll use environment variables to set the Postgres username and password
 so we don't share that information online.
 

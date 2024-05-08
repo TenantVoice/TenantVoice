@@ -5,7 +5,7 @@ const User = require('../db/models/User');
 // is valid, it adds the userId to the cookie (allowing them to stay logged in)
 // and sends back the user object.
 exports.loginUser = async (req, res) => {
-  const { username, password } = req.body // the req.body value is provided by the client
+  const { username, password } = req.body; // the req.body value is provided by the client
 
   const user = await User.findByUsername(username);
   if (!user) return res.sendStatus(404);
@@ -17,7 +17,7 @@ exports.loginUser = async (req, res) => {
   res.send(user);
 };
 
-// This controller sets `req.session` to null, destroying the cookie 
+// This controller sets `req.session` to null, destroying the cookie
 // which is the thing that keeps them logged in.
 exports.logoutUser = (req, res) => {
   req.session = null;
