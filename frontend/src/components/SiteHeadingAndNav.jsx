@@ -9,7 +9,7 @@ export default function SiteHeadingAndNav() {
     <a id='logo' href='/'>React/Express Auth</a>
     <nav>
       <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/home'>Home</NavLink></li>
 
         {
           currentUser
