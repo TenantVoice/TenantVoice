@@ -38,7 +38,7 @@ class Post {
 
   static async updateDescription(id, description) {
     const query = `UPDATE posts SET description=? WHERE id=?`;
-    const { rows } = knex.raw(query, [id, description]);
+    const { rows } = await knex.raw(query, [id, description]);
     return rows[0];
   }
 }

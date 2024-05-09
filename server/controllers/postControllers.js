@@ -28,3 +28,28 @@ exports.createPost = async (req, res) => {
   );
   res.send(post);
 };
+
+// trying to fixvv 
+exports.updateDescription = async (req, res) => {
+  const { id } = req.params;
+  const { description } = req.body;
+
+  const post = Post.updateDescription(
+    description
+  );
+  res.send(post);
+
+}
+
+exports.deletePost = async (req, res) => {
+  const { id } = req.params;
+  const { category, date, problem_duration,
+    previously_reported, description, picture } = req.body;
+
+  const post = Post.deletePost(
+    description
+  );
+  res.send(post);
+
+}
+
