@@ -8,7 +8,8 @@ class User {
   // Instead, it is used by each of the User static methods to hide the hashed
   // password of users before sending user data to the client. Since #passwordHash
   // is private, only the isValidPassword instance method can access that value.
-  constructor({ username, password_hash, fullName, email }) {
+  constructor({ id, username, password_hash, fullName, email }) {
+    this.id = id;
     this.username = username;
     this.#passwordHash = password_hash;
     this.fullName = fullName;
@@ -48,9 +49,7 @@ class User {
     console.log(username, password, fullName, email)
     const query = `INSERT INTO users (username, password_hash, full_name, email) VALUES (?, ?, ?, ?) RETURNING*`;
     const { rows } = await knex.raw(query, [username, passwordHash, fullName, email]);
-    if (rows.length == 0) {
-      throw new Error('User creation failed: No user returned')
-    }
+
     const user = rows[0];
     return new User(user);
   }
