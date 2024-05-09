@@ -9,9 +9,11 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
+  const [fullName, setFullName] = useState('')
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   // We could also use a single state variable for the form data:
   // const [formData, setFormData] = useState({ username: '', password: '' });
@@ -22,9 +24,9 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
-    if (!username || !email || !password) return setErrorText('Missing username or password or email');
+    if (!username || !email || !password || !fullName) return setErrorText('Missing username or password or email or fullName');
 
-    const [user, error] = await createUser({ username, email, password });
+    const [user, error] = await createUser({ username, password, fullName, email });
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
@@ -34,14 +36,17 @@ export default function SignUpPage() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === 'username') setUsername(value);
-    if (name === 'email') setEmail(value)
     if (name === 'password') setPassword(value);
+    if (name === 'fullName') setFullName(value)
+    if (name === 'email') setEmail(value)
   };
 
   return <>
     <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">Create New User</h2>
+      <label>Full Name</label>
+      <input type="text" id="fullName" name="fullName" onChange={handleChange} value={fullName} />
       <label htmlFor="username">Username</label>
       <input
         autoComplete="off"
@@ -52,7 +57,7 @@ export default function SignUpPage() {
         value={username}
       />
       <label htmlFor="email">email</label>
-      <input type="text" id="email" name="email" />
+      <input type="text" id="email" name="email" onChange={handleChange} value={email} />
 
       <label htmlFor="password">Password</label>
       <input
