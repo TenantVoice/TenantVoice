@@ -1,0 +1,6 @@
+.hero-section {
+    background-image: url('../public/famAtBeach.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
