@@ -1,0 +1,11 @@
+.hero-section {
+    background-image: url('/famAtBeach.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.card {
+    padding: 10px;
+    border: solid black 10px;
+}
