@@ -4,6 +4,8 @@
  */
 exports.seed = async (knex) => {
   // Before you have models you can always just do `await knex('table_name').del`
+  await knex('posts').del();
+  await knex('locations').del();
   await knex('users').del();
 
   await knex('users').insert([
@@ -24,6 +26,48 @@ exports.seed = async (knex) => {
       username: 'wheatglacier',
       password_hash: '8908930',
       email: 'wheatglacier@gmail.com',
+    },
+  ]);
+
+  await knex('locations').insert([
+    {
+      borough: "Brooklyn",
+      neighborhood: "Canarsie",
+      complex: "Bay View Houses",
+      building: 4,
+    },
+    {
+      borough: "Brooklyn",
+      neighborhood: "Canarsie",
+      complex: "Breukelen Houses",
+      building: 17,
+    },
+    {
+      borough: "Manhattan",
+      neighborhood: "Upper West Side",
+      complex: "Amsterdam Houses",
+      building: 7,
+    },
+  ]);
+
+  await knex('posts').insert([
+    {
+      user_id: 1,
+      location_id: 1,
+      category: 'Public Housing',
+      created_at: knex.fn.now(),
+      previously_reported: false,
+      description: `Recognizing the need for increased accountability in public housing...`,
+      picture: Buffer.from('default_placeholder', 'utf-8'), // Replace with your binary data
+    },
+    {
+      user_id: 2,
+      location_id: 2,
+      category: 'Maintenance Issue',
+      created_at: knex.fn.now(),
+      previously_reported: true,
+      description: `Persistent water leaks in several apartments...`,
+      picture: Buffer.from('default_placeholder', 'utf-8'), // Replace with your binary data
     },
   ]);
 };
