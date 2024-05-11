@@ -23,9 +23,9 @@ class Post {
     return rows[0];
   }
 
-  static async addPost(category, description, picture, reported_at = false) {
+  static async addPost(category, description, picture, previously_reported = false) {
     const query = `INSERT INTO posts(category, description, previously_reported, picture) VALUES (?, ?, ?, ?);`;
-    const { rows } = await knex.raw(query, [category, description, reported_at, picture]);
+    const { rows } = await knex.raw(query, [category, description, previously_reported, picture]);
     console.log(rows[0]);
     return rows[0];
   }

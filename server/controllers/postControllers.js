@@ -11,8 +11,8 @@ exports.getPostById = async (req, res) => {
   if (!post) res.sendStatus(404);
   res.send(post);
 };
-
-exports.createPost = async (req, res) => {
+// vv changed this to addPost in order to match model method
+exports.addPost = async (req, res) => {
   const { id, category, date, problem_duration,
     previously_reported, description, picture } = req.body;
 

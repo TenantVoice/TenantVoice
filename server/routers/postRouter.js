@@ -4,7 +4,7 @@ const checkAuthentication = require('../middleware/checkAuthentication');
 
 const postRouter = express.Router();
 
-postRouter.post('/', postControllers.createPost);
+postRouter.post('/', postControllers.addPost);
 
 postRouter.get('/', postControllers.getAllPosts);
 postRouter.get('/:id', postControllers.getPostById);
