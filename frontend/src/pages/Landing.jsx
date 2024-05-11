@@ -31,7 +31,7 @@ export default function Landing() {
                         <li><strong>Community:</strong> Two separate feeds show posts from your own complex and from all NYCHA residents.</li>
                     </ul>
                 }
-
+            //temp
 
             />
         </>
