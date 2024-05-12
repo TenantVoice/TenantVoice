@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../adapters/post-adapter";
 import PostLink from "../components/UserLink";
+import FlyoutNav from "../components/FlyoutNav";
+import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
+
 
 export default function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -10,6 +13,7 @@ export default function HomePage() {
   }, []);
 
   return <>
+    <SiteHeadingAndNav />
     <h1>Post</h1>
     <ul>
       {

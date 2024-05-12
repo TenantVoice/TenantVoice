@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../adapters/user-adapter";
 import UserLink from "../components/UserLink";
+import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
@@ -10,6 +11,7 @@ export default function UsersPage() {
   }, []);
 
   return <>
+    <SiteHeadingAndNav />
     <h1>Users</h1>
     <ul>
       {

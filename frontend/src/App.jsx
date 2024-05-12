@@ -10,6 +10,7 @@ import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
+import FlyoutNav from './components/FlyoutNav';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -18,7 +19,8 @@ export default function App() {
   }, [setCurrentUser]);
 
   return <>
-    <SiteHeadingAndNav />
+    {/* // changed this from SiteHeadingAndNav to FlyOut  */}
+
     <main>
       <Routes>
         <Route path='/home' element={<Home />} />
