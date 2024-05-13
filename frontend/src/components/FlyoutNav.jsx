@@ -17,6 +17,7 @@ export default function FlyoutNav() {
     const { currentUser } = useContext(CurrentUserContext);
 
     return (
+
         <nav className={`fixed top-0 z-50 w-full px-6 text-white transition-all duration-300 ease-out lg:px-12 ${scrolled ? "bg-neutral-950 py-3 shadow-xl" : "bg-transparent py-6 shadow-none"
             }`}>
             <div className="mx-auto max-w-7xl flex items-center justify-between">
