@@ -17,6 +17,10 @@ class Post {
     return rows;
   }
 
+  static async getUserNameByPost() {
+    const query = `SELECT `
+  }
+
   static async getPostById(id) {
     const query = `SELECT * FROM post WHERE id = ?`;
     const { rows } = await knex.raw(query, [id]);

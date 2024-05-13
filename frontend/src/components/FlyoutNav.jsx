@@ -5,7 +5,6 @@ import CurrentUserContext from "../contexts/current-user-context";
 // import MobileMenu from "./MobileMenu";
 // import linksConfig from "../../links.config";
 
-
 export default function FlyoutNav() {
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();
