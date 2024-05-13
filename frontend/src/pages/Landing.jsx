@@ -14,6 +14,7 @@ import {
 import useMeasure from "react-use-measure";
 import FlyoutNav from "../components/FlyoutNav";
 // import MobileMenu from "../components/MobileMenu";
+import { ColorChangeCards, Cards } from "../components/LandingCards";
 
 
 
@@ -37,23 +38,29 @@ export default function Example() {
 
                 <h1>TenantVoice</h1>
                 <div className="cards-container" style={{ marginTop: '20px' }}>
-                    <Card
-                        title="Our Mission"
-                        details="TenantVoice aims to enhance public housing by providing a platform for tenants to report issues and collaborate with neighbors, promoting accountability and empowering advocacy."
+                    {/* <ColorChangeCards /> */}
+                    <Cards
+                        heading="Our Mission"
+                        description="TenantVoice aims to enhance public housing by providing a platform for tenants to report issues and collaborate with neighbors, promoting accountability and empowering advocacy."
+                        imgSrc="../weAreOne.jpg"
                     />
-                    <Card
-                        title="The Problem"
-                        details="Public housing residents often endure unresolved maintenance issues that degrade living conditions and pose health risks. Without a platform to unite and voice their concerns, tenants struggle to communicate and take collective action to demand improvements."
+                    <Cards
+                        heading="The Problem"
+                        description="Public housing residents often endure unresolved maintenance issues that degrade living conditions and pose health risks. Without a platform to unite and voice their concerns, tenants struggle to communicate and take collective action to demand improvements."
+                        imgSrc="../ambulance.jpg"
+
                     />
-                    <Card
-                        title="What You Can Do"
-                        details={
+                    <Cards
+                        heading="What You Can Do"
+                        description={
                             <ul>
                                 <li><strong>Report:</strong> Post about housing issues, include the category of the problem and how long it's been going on for.</li>
                                 <li><strong>Magnitude:</strong> View data visuals detailing housing issues locally and across NYCHA.</li>
                                 <li><strong>Community:</strong> Two separate feeds show posts from your own complex and from all NYCHA residents.</li>
                             </ul>
                         }
+                        imgSrc="../protester.jpg"
+
                     />
                 </div>
             </div>
