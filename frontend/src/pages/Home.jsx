@@ -13,6 +13,7 @@ export default function HomePage() {
   }, []);
 
   return <>
+
     <SiteHeadingAndNav />
     <h1>Post</h1>
     <ul>

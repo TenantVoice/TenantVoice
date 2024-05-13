@@ -36,7 +36,7 @@ export default function Example() {
             <div className="content-container" style={{ padding: '20px' }}>
 
 
-                <h1>TenantVoice</h1>
+
                 <div className="cards-container" style={{ marginTop: '20px' }}>
                     {/* <ColorChangeCards /> */}
                     <Cards
