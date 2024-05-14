@@ -14,8 +14,6 @@ export default function SignUpPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
   // We could also use a single state variable for the form data:
   // const [formData, setFormData] = useState({ username: '', password: '' });
   // What would be the pros and cons of that?
@@ -45,7 +43,6 @@ export default function SignUpPage() {
   };
 
   return <>
-    <FlyoutNav />
     <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">Create New User</h2>

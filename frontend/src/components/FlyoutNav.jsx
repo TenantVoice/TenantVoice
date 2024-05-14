@@ -3,7 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 import CurrentUserContext from "../contexts/current-user-context";
 
-
 export default function FlyoutNav() {
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();

@@ -7,7 +7,6 @@ exports.createUser = async (req, res) => {
   // TODO: check if username is taken, and if it is what should you return?
   const user = await User.create(username, password, fullName, email);
   req.session.userId = user.id;
-
   res.send(user);
 };
 
@@ -33,7 +32,6 @@ exports.updateUser = async (req, res) => {
   // need to be authorized to perform this action for this particular
   // user (users should only be able to change their own profiles)
   if (!isAuthorized(id, req.session)) return res.sendStatus(403);
-
   const updatedUser = await User.update(id, username);
   if (!updatedUser) return res.sendStatus(404);
   res.send(updatedUser);
