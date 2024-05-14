@@ -3,6 +3,7 @@ import { getAllPosts } from "../adapters/post-adapter";
 import PostLink from "../components/UserLink";
 import FlyoutNav from "../components/FlyoutNav";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
+import '../home.css'
 
 
 export default function HomePage() {
