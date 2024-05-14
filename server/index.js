@@ -7,7 +7,7 @@ const logRoutes = require('./middleware/logRoutes');
 
 const authRouter = require('./routers/authRouter');
 const userRouter = require('./routers/userRouter');
-const postRouter = require('./routers/postRouter')
+const postRouter = require('./routers/postRouter');
 
 const app = express();
 
