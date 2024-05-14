@@ -14,12 +14,13 @@ class Post {
   static async getAllPosts() {
     const query = `SELECT * FROM posts;`;
     const { rows } = await knex.raw(query);
+    console.log(rows)
     return rows;
   }
 
-  static async getUserNameByPost() {
-    const query = `SELECT `
-  }
+  // static async getUserNameByPost() {
+  //   const query = `SELECT `
+  // }
 
   static async getPostById(id) {
     const query = `SELECT * FROM post WHERE id = ?`;
@@ -28,8 +29,8 @@ class Post {
   }
 
   static async addPost(category, description, picture, previously_reported = false) {
-    const query = `INSERT INTO posts(category, description, previously_reported, picture) VALUES (?, ?, ?, ?);`;
-    const { rows } = await knex.raw(query, [category, description, previously_reported, picture]);
+    const query = `INSERT INTO posts(category, description, previously_reported, picture, user_id, location_id) VALUES (?, ?, ?, ?);`;
+    const { rows } = await knex.raw(query, [category, description, previously_reported, picture,]);
     console.log(rows[0]);
     return rows[0];
   }

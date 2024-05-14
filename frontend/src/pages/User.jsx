@@ -5,6 +5,7 @@ import { getUser } from "../adapters/user-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
+import FlyoutNav from "../components/FlyoutNav";
 
 export default function UserPage() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export default function UserPage() {
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
   const profileEmail = isCurrentUserProfile ? currentUser.email : userProfile.email;
   return <>
-    <SiteHeadingAndNav />
+    <FlyoutNav />
     <h1>{profileUsername}</h1>
     <h2>{profileEmail}</h2>
     {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}

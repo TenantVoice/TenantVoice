@@ -15,13 +15,14 @@ import useMeasure from "react-use-measure";
 import FlyoutNav from "../components/FlyoutNav";
 // import MobileMenu from "../components/MobileMenu";
 import { ColorChangeCards, Cards } from "../components/LandingCards";
-
+import { CountUpStats } from "../components/Stats";
 
 
 export default function Example() {
     return (
         <>
             <FlyoutNav />
+
             <div
                 className="relative min-h-screen"
                 style={{
@@ -30,9 +31,10 @@ export default function Example() {
                     backgroundPosition: "center",
                 }}
             >
+
                 <div className="absolute inset-0 z-0 bg-gradient-to-b from-neutral-950/90 to-neutral-950/0" />
             </div>
-
+            <CountUpStats />
             <div className="content-container" style={{ padding: '20px' }}>
 
 
@@ -62,7 +64,9 @@ export default function Example() {
                         imgSrc="../protester.jpg"
 
                     />
+
                 </div>
+
             </div>
         </>
     );

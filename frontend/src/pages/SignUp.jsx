@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
-import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
+import FlyoutNav from "../components/FlyoutNav";
 
 // Controlling the sign up form is a good idea because we want to add (eventually)
 // more validation and provide real time feedback to the user about usernames and passwords
@@ -14,8 +14,6 @@ export default function SignUpPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
   // We could also use a single state variable for the form data:
   // const [formData, setFormData] = useState({ username: '', password: '' });
   // What would be the pros and cons of that?
@@ -40,10 +38,11 @@ export default function SignUpPage() {
     if (name === 'password') setPassword(value);
     if (name === 'fullName') setFullName(value)
     if (name === 'email') setEmail(value)
+    //additional fields go under 
+
   };
 
   return <>
-    <SiteHeadingAndNav />
     <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">Create New User</h2>

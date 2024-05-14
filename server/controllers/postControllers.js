@@ -34,10 +34,10 @@ exports.updateDescription = async (req, res) => {
   const { description } = req.body;
 
   const post = Post.updateDescription(
+    id,
     description
   );
   res.send(post);
-
 }
 
 exports.deletePost = async (req, res) => {
