@@ -11,6 +11,8 @@ import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import FlyoutNav from './components/FlyoutNav';
+import SlideInAuth from './pages/NewSignUp';
+
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -27,7 +29,8 @@ export default function App() {
         <Route path='/' element={<Landing />} />
 
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/sign-up' element={<SignUpPage />} />
+        {/* vv changed from SignUpPage to SlideinAuth vv */}
+        <Route path='/sign-up' element={<SlideInAuth />} />
         <Route path='/users' element={<UsersPage />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
