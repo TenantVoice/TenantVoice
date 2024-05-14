@@ -15,7 +15,7 @@ export default function HomePage() {
 
   return <>
 
-    <SiteHeadingAndNav />
+    <FlyoutNav />
     <h1>Post</h1>
     <ul>
       {
