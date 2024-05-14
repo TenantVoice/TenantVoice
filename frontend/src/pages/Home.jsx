@@ -3,6 +3,8 @@ import { getAllPosts } from "../adapters/post-adapter";
 import PostLink from "../components/UserLink";
 import FlyoutNav from "../components/FlyoutNav";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
+import ReportForm from "../components/ReportForm"
+import '../home.css'
 
 
 export default function HomePage() {
@@ -16,6 +18,7 @@ export default function HomePage() {
 
     <FlyoutNav />
     <h1>Post</h1>
+    <ReportForm setPosts={setPosts} />
     <ul>
       {
         posts.map((post) =>
