@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
 
+
 export const ColorChangeCards = () => {
     return (
         <div className="p-4 md:p-8 bg-slate-100">
@@ -38,7 +39,7 @@ export const Cards = ({ heading, description, imgSrc }) => {
                 staggerChildren: 0.035,
             }}
             whileHover="hover"
-            className="w-full h-64 bg-slate-300 overflow-hidden cursor-pointer group relative"
+            className="w-full h-96 bg-slate-500 overflow-hidden cursor-pointer group relative my-4"
         >
             <div
                 className="absolute inset-0 saturate-100 md:saturate-0 md:group-hover:saturate-100 group-hover:scale-110 transition-all duration-500"
