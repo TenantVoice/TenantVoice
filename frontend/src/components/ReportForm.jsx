@@ -1,117 +1,73 @@
-import { createPost } from "../adapters/post-adapter"
-
+import { createPost } from "../adapters/post-adapter";
+import CurrentUserContext from "../contexts/current-user-context";
+import { useContext } from "react";
 
 export default function ReportForm({ setPosts }) {
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
+    console.log(currentUser)
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         const [newPost, error] = await createPost(Object.fromEntries(formData));
-        // we need to update the createPost adapter to include all of the columns
 
         if (error?.cause > 400 && error?.cause < 500) {
-            setPost(null);
+            setPosts(prevPosts => prevPosts);  // Placeholder: Update as needed
+        } else {
+            setPosts(prevPosts => [...prevPosts, newPost]); // This line adds the new post to the existing posts using spread operator
         }
-
-        // setPosts(newPost);
-        // I commented this out because we might need to use the spread operator to add 
-        // `newPost` to the `posts` state, but I don't remember how to do that
         event.target.reset();
-    }
+    };
 
     return (
-
-        <form>
-            <aside id="default-sidebar" class="fixed top-10 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-                <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-                    <ul class="space-y-2 font-medium">
+        <form onSubmit={handleSubmit}>
+            <aside id="default-sidebar" className="fixed top-10 left-0 z-40 w-96 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-50 dark:bg-gray-800" aria-label="Sidebar">
+                <div className="h-full px-4 py-6 overflow-y-auto">
+                    <ul className="space-y-4">
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="ms-3">
-                                    <label htmlFor="category">Complaint category:</label>
-                                    <select name="category" id="category">
-                                        <option value="infestation">Infestation</option>
-                                        <option value="heating">Heating</option>
-                                        <option value="structural">Structural</option>
-                                        <option value="mold">Mold</option>
-                                    </select>
-                                </span>
-                            </a>
+                            <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <label htmlFor="category" className="font-medium">Complaint category:</label>
+                                <select name="category" id="category" className="mt-1 w-full rounded-md">
+                                    <option value="infestation">Infestation</option>
+                                    <option value="heating">Heating</option>
+                                    <option value="structural">Structural</option>
+                                    <option value="mold">Mold</option>
+                                </select>
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="flex-1 ms-3 whitespace-nowrap">
-                                    <label htmlFor="problem_duration">Length of problem (in weeks):</label>
-                                    <input type="number" id="problem_duration" name="problem_duration" className="w-[10rem] rounded-full" />
-                                </span>
-                            </a>
+                            <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <label htmlFor="problem_duration" className="font-medium">Length of problem (in weeks):</label>
+                                <input type="number" id="problem_duration" name="problem_duration" className="mt-1 w-full rounded-md" />
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="flex-1 ms-3 whitespace-nowrap">
-                                    <label htmlFor="building_number">Building #:</label>
-                                    <input type="number" id="building_number" name="building_number" className="w-[10rem] rounded-full" />
-                                </span>
-                                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-                            </a>
+                            <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <label htmlFor="building_number" className="font-medium">Building #:</label>
+                                <input type="number" id="building_number" name="building_number" className="mt-1 w-full rounded-md" />
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="flex-1 ms-3 whitespace-nowrap border-4">
-                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only" />
-                                    </label>
-                                </span>
-                            </a>
+                            <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <label htmlFor="file_input" className="block font-medium">Upload picture</label>
+                                <input type="file" id="file_input" name="file_input" className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="flex-1 ms-3 whitespace-nowrap">
-                                    <label htmlFor="description">About the problem:</label>
-                                    <input type="text" id="description" name="description" className="w-[10rem] rounded-full" />
-                                </span>
-                            </a>
+                            <div className="flex flex-col items-start p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <label htmlFor="description" className="font-medium">Description:</label>
+                                <textarea id="description" name="description" className="mt-1 w-full h-32 rounded-md" placeholder="Describe your issue in detail."></textarea>
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <span class="flex-1 ms-3 whitespace-nowrap">
-                                    <button className="">Submit</button>
-                                </span>
-                            </a>
+                            <div className="flex justify-center items-center p-2 w-full">
+                                <button type="submit" className="w-1/2 py-1 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">Submit</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </aside>
         </form>
-    )
+    );
 }
 
-// <form onSubmit={handleSubmit} aria-labelledby="create-report-post" className="">
-//         <h2 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >Report Form</h2>
-// <label htmlFor="category">Complaint category:</label>
-// <select name="category" id="category">
-//     <option value="infestation">Infestation</option>
-//     <option value="heating">Heating</option>
-//     <option value="structural">Structural</option>
-//     <option value="mold">Mold</option>
-// </select>
-
-// <label htmlFor="problem_duration">Length of problem (in weeks):</label>
-// <input type="number" id="problem_duration" name="problem_duration" className="w-[10rem]" />
-
-//         <label htmlFor="previously_reported">Previously reported:</label>
-//         <input type="checkbox" id="previously_reported" name="previously_reported" />
-
-// <label htmlFor="building_number">Building #:</label>
-// <input type="number" id="building_number" name="building_number" className="w-[10rem]" />
-
-// <label htmlFor="photo">Photo:</label>
-// <input type="text" id="photo" name="photo" className="w-[10rem]" />
-
-// <label htmlFor="description">About the problem:</label>
-// <input type="text" id="description" name="description" className="w-[10rem]" />
-
-// <button className="">Submit</button>
-
-//     </form>
