@@ -45,6 +45,7 @@ export default function SignUpPage() {
   };
 
   return <>
+
     <FlyoutNav />
     <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
@@ -60,6 +61,7 @@ export default function SignUpPage() {
         onChange={handleChange}
         value={username}
       />
+
       <label htmlFor="email">email</label>
       <input type="text" id="email" name="email" onChange={handleChange} value={email} />
 

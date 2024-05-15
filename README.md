@@ -3,8 +3,8 @@ Our application aims to improve public housing quality by providing a transparen
 
 ## Team
 
- - __Product Manager__: Nicole Juarez-Flores
- - __Scrum Master__: Mohamed Sy
+ - __Product Manager__: Mohamed Sy
+ - __Scrum Master__: Nicole Juarez-Flores
  - __Development Team Members__: Roe Cox
 
 

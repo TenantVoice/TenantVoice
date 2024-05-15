@@ -9,7 +9,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-
+  3
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
