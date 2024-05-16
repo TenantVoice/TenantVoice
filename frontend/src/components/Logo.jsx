@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function Logo({ color = "white" }) {
     // Temp logo from https://logoipsum.com/
     return (
