@@ -12,7 +12,7 @@ export default function HomePage() {
 
   useEffect(() => {
     getAllPosts().then(setPosts);
-  }, []);
+  }, [posts]);
 
   return <>
 

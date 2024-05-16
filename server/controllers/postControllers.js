@@ -13,19 +13,14 @@ exports.getPostById = async (req, res) => {
 };
 // changed this to addPost in order to match model method
 exports.addPost = async (req, res) => {
-  const { category, date, problem_duration,
-    previously_reported, description, picture, user_id, location_id } = req.body;
-
+  const { category, description, user_id } = req.body;
+  console.log(category, description, user_id)
   const post = Post.addPost(
     category,
-    date,
-    problem_duration,
-    previously_reported,
     description,
-    picture,
     user_id,
-    location_id
   );
+
   res.send(post);
 };
 

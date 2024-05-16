@@ -56,7 +56,6 @@ exports.seed = async (knex) => {
       location_id: 1,
       category: 'Public Housing',
       created_at: knex.fn.now(),
-      previously_reported: false,
       description: `Recognizing the need for increased accountability in public housing...`,
       picture: Buffer.from('default_placeholder', 'utf-8'), // Replace with your binary data
     },
@@ -65,7 +64,6 @@ exports.seed = async (knex) => {
       location_id: 2,
       category: 'Maintenance Issue',
       created_at: knex.fn.now(),
-      previously_reported: true,
       description: `Persistent water leaks in several apartments...`,
       picture: Buffer.from('default_placeholder', 'utf-8'), // Replace with your binary data
     },

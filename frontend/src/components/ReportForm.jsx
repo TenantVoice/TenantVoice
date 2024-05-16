@@ -1,24 +1,32 @@
 import { createPost } from "../adapters/post-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function ReportForm({ setPosts }) {
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    const [errorText, setErrorText] = useState('');
+    const [category, setCategory] = useState('Infestation')
+    const [problem_duration, setProblem_duration] = useState()
+    const [description, setDescription] = useState()
+    const currentUserId = currentUser?.id
 
-    console.log(currentUser)
+    // console.log(currentUser)
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData(event.target);
-        const [newPost, error] = await createPost(Object.fromEntries(formData));
 
-        if (error?.cause > 400 && error?.cause < 500) {
-            setPosts(prevPosts => prevPosts);  // Placeholder: Update as needed
-        } else {
-            setPosts(prevPosts => [...prevPosts, newPost]); // This line adds the new post to the existing posts using spread operator
-        }
-        event.target.reset();
+        console.log(category, description, problem_duration, currentUserId)
+        const [newPost, error] = await createPost({ category, description, currentUserId });
+        if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
+        if (error) return setErrorText(error.message);
     };
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setErrorText('');
+        if (name === 'category') setCategory(value);
+        if (name === 'problem_duration') setProblem_duration(value);
+        if (name === 'description') setDescription(value);
+    };
     return (
         <form onSubmit={handleSubmit}>
             <aside id="default-sidebar" className="fixed top-10 left-0 z-40 w-96 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-50 dark:bg-gray-800" aria-label="Sidebar">
@@ -27,7 +35,7 @@ export default function ReportForm({ setPosts }) {
                         <li>
                             <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <label htmlFor="category" className="font-medium">Complaint category:</label>
-                                <select name="category" id="category" className="mt-1 w-full rounded-md">
+                                <select name="category" id="category" className="mt-1 w-full rounded-md" onChange={handleChange}>
                                     <option value="infestation">Infestation</option>
                                     <option value="heating">Heating</option>
                                     <option value="structural">Structural</option>
@@ -38,13 +46,7 @@ export default function ReportForm({ setPosts }) {
                         <li>
                             <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <label htmlFor="problem_duration" className="font-medium">Length of problem (in weeks):</label>
-                                <input type="number" id="problem_duration" name="problem_duration" className="mt-1 w-full rounded-md" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <label htmlFor="building_number" className="font-medium">Building #:</label>
-                                <input type="number" id="building_number" name="building_number" className="mt-1 w-full rounded-md" />
+                                <input type="number" id="problem_duration" name="problem_duration" className="mt-1 w-full rounded-md" onChange={handleChange} />
                             </div>
                         </li>
                         <li>
@@ -56,7 +58,7 @@ export default function ReportForm({ setPosts }) {
                         <li>
                             <div className="flex flex-col items-start p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <label htmlFor="description" className="font-medium">Description:</label>
-                                <textarea id="description" name="description" className="mt-1 w-full h-32 rounded-md" placeholder="Describe your issue in detail."></textarea>
+                                <textarea id="description" name="description" className="mt-1 w-full h-32 rounded-md" placeholder="Describe your issue in detail." onChange={handleChange}></textarea>
                             </div>
                         </li>
                         <li>
