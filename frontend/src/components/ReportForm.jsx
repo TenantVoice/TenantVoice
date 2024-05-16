@@ -9,8 +9,8 @@ export default function ReportForm({ setPosts }) {
     const [problem_duration, setProblem_duration] = useState()
     const [description, setDescription] = useState()
     const currentUserId = currentUser?.id
-    
-    
+
+
     // console.log(currentUser)
     const handleSubmit = async (event) => {
         event.preventDefault();
