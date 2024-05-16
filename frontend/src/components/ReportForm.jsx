@@ -18,6 +18,8 @@ export default function ReportForm({ setPosts }) {
         const [newPost, error] = await createPost({ category, description, currentUserId });
         if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
         if (error) return setErrorText(error.message);
+
+        event.target.reset();
     };
 
     const handleChange = (event) => {
