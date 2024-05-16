@@ -192,7 +192,7 @@ const SupplementalContent = () => {
     return (
         <div className="group sticky top-4 m-4 h-80 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-[calc(100vh_-_2rem)]">
             <img
-                alt="family at beach"
+                alt="poster of we are"
                 src="../weAreOne.jpg"
                 className="h-full w-full bg-white object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
             />
