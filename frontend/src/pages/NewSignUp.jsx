@@ -7,8 +7,6 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
 import FlyoutNav from "../components/FlyoutNav";
 
-
-
 export default function SlideInAuth() {
     return (
         <>

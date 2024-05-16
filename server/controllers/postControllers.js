@@ -11,44 +11,38 @@ exports.getPostById = async (req, res) => {
   if (!post) res.sendStatus(404);
   res.send(post);
 };
-// vv changed this to addPost in order to match model method
+// changed this to addPost in order to match model method
 exports.addPost = async (req, res) => {
-  const { id, category, date, problem_duration,
-    previously_reported, description, picture } = req.body;
+  const { category, date, problem_duration,
+    previously_reported, description, picture, user_id, location_id } = req.body;
 
   const post = Post.addPost(
-    id,
     category,
     date,
     problem_duration,
     previously_reported,
     description,
     picture,
+    user_id,
+    location_id
   );
   res.send(post);
 };
 
-// trying to fixvv 
 exports.updateDescription = async (req, res) => {
   const { id } = req.params;
   const { description } = req.body;
-
   const post = Post.updateDescription(
+    id,
     description
   );
   res.send(post);
-
 }
 
 exports.deletePost = async (req, res) => {
-  const { id } = req.params;
-  const { category, date, problem_duration,
-    previously_reported, description, picture } = req.body;
-
+  const { id } = req.body;
   const post = Post.deletePost(
-    description
+    id
   );
   res.send(post);
-
 }
-
