@@ -22,7 +22,8 @@ export default function LoginPage() {
 
   if (currentUser) return <Navigate to="/" />;
 
-  return <>
+  return (<>
+
     <FlyoutNav />
     <h1>Login</h1>
     <form onSubmit={handleSubmit} aria-labelledby="login-heading">
@@ -36,5 +37,6 @@ export default function LoginPage() {
       <button>Log in!</button>
     </form>
     {!!errorText && <p>{errorText}</p>}
-  </>;
+  </>);
 }
+;

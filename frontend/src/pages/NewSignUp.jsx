@@ -8,14 +8,15 @@ import { createUser } from "../adapters/user-adapter";
 import FlyoutNav from "../components/FlyoutNav";
 
 export default function SlideInAuth() {
-    // <FlyoutNav />
-
     return (
-        <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
-            {/* <Logo /> */}
-            <Form />
-            <SupplementalContent />
-        </section>
+        <>
+            <FlyoutNav />
+            <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
+                {/* <Logo /> */}
+                <Form />
+                <SupplementalContent />
+            </section>
+        </>
     );
 };
 
@@ -27,29 +28,49 @@ const Form = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // trying dropdown menu ; SN: on hold until location in model 
+    const [location, setLocation] = useState('hi');
+    const [options, setOptions] = useState([])
+    // ^^ ([]) because dropdown expected to handle options, best represented in an array 
+    const [showDropdown, setShowDropdown] = useState(false);
 
     if (currentUser) return <Navigate to="/" />;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorText('');
-        if (!username || !email || !password || !fullName) return setErrorText(error.message);
+        if (!username || !email || !password || !fullName || !location) return setErrorText(error.message);
 
-        const [user, error] = await createUser({ username, password, fullName, email });
+        const [user, error] = await createUser({ username, email, password, fullName, location });
         if (error) return setErrorText(error.message);
 
 
         setCurrentUser(user);
         navigate('/');
     };
-
+    // this is just testing for the dropdown, IGNOREEE 
+    const boroughs = ['Bronx', 'Brooklyn', 'Queens', 'Manhattan', 'Staten Island']
     const handleChange = (event) => {
         const { name, value } = event.target;
         if (name === 'username') setUsername(value);
         if (name === 'password') setPassword(value);
         if (name === 'fullName') setFullName(value);
         if (name === 'email') setEmail(value);
+        if (name === 'location') {
+            setLocation(value);
+            const filteredOptions = value.length > 0 ? boroughs.filter(item =>
+                item.toLowerCase().includes(value.toLowerCase())
+            ) : [];
+            setOptions(filteredOptions);
+            setShowDropdown(filteredOptions.length > 0);
+        };
     };
+
+    const handleLocationChange = (value) => {
+        setLocation(value);
+        setShowDropdown(false);
+    };
+
 
     return (
 
@@ -116,6 +137,39 @@ const Form = () => {
                         />
 
                     </motion.div>
+                    {/* // locationnn */}
+
+                    <motion.div variants={primaryVariants} className="mb-2 w-full">
+                        <label htmlFor="location" className="mb-1 inline-block text-sm font-medium">
+                            Location<span className="text-red-600">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Start typing location..."
+                            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                            // value={location}
+                            onChange={handleLocationChange}
+                            autoComplete="off"
+                            required
+                        />
+                        {showDropdown && (
+                            <ul className="absolute w-full bg-white border border-slate-300 z-10">
+                                {boroughs.map((option, index) => (
+                                    <li
+                                        key={index}
+                                        className="px-2.5 py-1.5 hover:bg-slate-100 cursor-pointer"
+                                        onClick={() => handleSelectOption(option)}
+                                    >
+                                        {option}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </motion.div>
+
+
 
                     <motion.button
                         variants={primaryVariants}
@@ -136,7 +190,7 @@ const SupplementalContent = () => {
     return (
         <div className="group sticky top-4 m-4 h-80 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-[calc(100vh_-_2rem)]">
             <img
-                alt="family at beach"
+                alt="poster of we are"
                 src="../weAreOne.jpg"
                 className="h-full w-full bg-white object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
             />
@@ -169,54 +223,7 @@ const SupplementalContent = () => {
                     Connect with your NYCHA neighbors in one place, to empower the community and voice out housing issues.
                 </motion.p>
                 <div className="flex items-center gap-4">
-                    {/* <div className="flex items-center">
-                        <motion.img
-                            variants={avatarVariants}
-                            className="h-8 w-8 rounded-full border-[1px] border-slate-100 object-cover shadow-inner"
-                            alt="A placeholder testimonial image"
-                            src="/imgs/head-shots/1.jpg"
-                        />
-                        <motion.img
-                            variants={avatarVariants}
-                            className="-ml-4 h-8 w-8 rounded-full border-[1px] border-slate-100 object-cover shadow-inner"
-                            alt="A placeholder testimonial image"
-                            src="/imgs/head-shots/2.jpg"
-                        />
-                        <motion.img
-                            variants={avatarVariants}
-                            className="-ml-4 h-8 w-8 rounded-full border-[1px] border-slate-100 object-cover shadow-inner"
-                            alt="A placeholder testimonial image"
-                            src="/imgs/head-shots/3.jpg"
-                        />
-                        <motion.img
-                            variants={avatarVariants}
-                            className="-ml-4 h-8 w-8 rounded-full border-[1px] border-slate-100 object-cover shadow-inner"
-                            alt="A placeholder testimonial image"
-                            src="/imgs/head-shots/4.jpg"
-                        />
-                        <motion.img
-                            variants={avatarVariants}
-                            className="-ml-4 h-8 w-8 rounded-full border-[1px] border-slate-100 object-cover shadow-inner"
-                            alt="A placeholder testimonial image"
-                            src="/imgs/head-shots/6.jpg"
-                        />
-                    </div> */}
-                    {/* <div>
-                        <motion.div variants={primaryVariants} className="flex gap-0.5">
-                            <FiStar className="fill-yellow-300 text-sm text-yellow-300" />
-                            <FiStar className="fill-yellow-300 text-sm text-yellow-300" />
-                            <FiStar className="fill-yellow-300 text-sm text-yellow-300" />
-                            <FiStar className="fill-yellow-300 text-sm text-yellow-300" />
-                            <FiStar className="fill-yellow-300 text-sm text-yellow-300" />
-                            <span className="ml-2 text-sm text-white">5.0</span>
-                        </motion.div>
-                        <motion.p
-                            variants={primaryVariants}
-                            className="text-xs text-slate-300"
-                        >
-                            for the site, 0.2 stars for NYCHA!
-                        </motion.p>
-                    </div> */}
+
                 </div>
             </motion.div>
         </div>
@@ -267,3 +274,6 @@ const avatarVariants = {
         opacity: 1,
     },
 };
+
+
+// SCREAMMMM
