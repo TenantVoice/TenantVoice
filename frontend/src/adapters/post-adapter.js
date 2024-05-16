@@ -5,8 +5,8 @@ import { fetchHandler, getPostOptions, getPatchOptions } from "../utils";
 
 const baseUrl = '/api/posts';
 
-export const createPost = async ({ category, description, userId }) => (
-    fetchHandler(baseUrl, getPostOptions({ category, description, userId }))
+export const createPost = async ({ category, description, user_id }) => (
+    fetchHandler(baseUrl, getPostOptions({ category, description, user_id }))
 );
 //static async addPost(category, description, picture, previously_reported = false, user_id, location_id)
 export const getAllPosts = async () => {
