@@ -12,6 +12,7 @@ import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import FlyoutNav from './components/FlyoutNav';
 import SlideInAuth from './pages/NewSignUp';
+import NewLogin from './pages/NewLogin';
 
 
 export default function App() {
@@ -27,8 +28,8 @@ export default function App() {
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/' element={<Landing />} />
-
-        <Route path='/login' element={<LoginPage />} />
+        {/* // changed to NewLogin vv */}
+        <Route path='/login' element={<NewLogin />} />
         {/* vv changed from SignUpPage to SlideinAuth vv */}
         <Route path='/sign-up' element={<SlideInAuth />} />
         <Route path='/users' element={<UsersPage />} />
