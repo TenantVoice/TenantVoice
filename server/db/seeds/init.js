@@ -8,6 +8,11 @@ exports.seed = async (knex) => {
   await knex('locations').del();
   await knex('users').del();
 
+  await knex.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1');
+  await knex.raw('ALTER SEQUENCE posts_id_seq RESTART WITH 1');
+  await knex.raw('ALTER SEQUENCE locations_id_seq RESTART WITH 1');
+
+
   await knex('users').insert([
     {
       full_name: 'Linden Salm',
@@ -50,9 +55,12 @@ exports.seed = async (knex) => {
     },
   ]);
 
+  const result = await knex.raw('SELECT * FROM users')
+  const users = result.rows
+
   await knex('posts').insert([
     {
-      user_id: 1,
+      user_id: users[0].id,
       location_id: 1,
       category: 'Public Housing',
       created_at: knex.fn.now(),
@@ -60,7 +68,7 @@ exports.seed = async (knex) => {
       picture: Buffer.from('default_placeholder', 'utf-8'), // Replace with your binary data
     },
     {
-      user_id: 2,
+      user_id: users[0].id,
       location_id: 2,
       category: 'Maintenance Issue',
       created_at: knex.fn.now(),

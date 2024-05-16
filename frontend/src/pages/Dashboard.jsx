@@ -11,9 +11,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         getAllPosts().then(setPosts);
-    }, [posts]);
+    }, []);
 
-    const filteredPost = posts.filter((post) => post.id == currentUser.id);
+    console.log(posts)
+    const filteredPost = posts.filter((post) => post.user_id === currentUser.id);
 
     return (
 

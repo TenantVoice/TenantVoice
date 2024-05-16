@@ -15,7 +15,7 @@ export default function ReportForm({ setPosts }) {
         event.preventDefault();
 
         console.log(category, description, problem_duration, currentUserId)
-        const [newPost, error] = await createPost({ category, description, currentUserId });
+        const [newPost, error] = await createPost({ category, description, user_id: currentUserId });
         if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
         if (error) return setErrorText(error.message);
 
