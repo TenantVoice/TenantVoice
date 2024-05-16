@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
-
-
 export const ColorChangeCards = () => {
     return (
         <div className="p-4 md:p-8 bg-slate-100">

@@ -12,7 +12,7 @@ import UserPage from './pages/User';
 import FlyoutNav from './components/FlyoutNav';
 import SlideInAuth from './pages/NewSignUp';
 import NewLogin from './pages/NewLogin';
-
+import Dashboard from './pages/Dashboard';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -32,6 +32,7 @@ export default function App() {
         {/* vv changed from SignUpPage to SlideinAuth vv */}
         <Route path='/sign-up' element={<SlideInAuth />} />
         <Route path='/users' element={<UsersPage />} />
+        <Route path='/users/:id/dashboard' element={<Dashboard />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
