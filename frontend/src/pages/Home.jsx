@@ -4,7 +4,6 @@ import PostLink from "../components/UserLink";
 import FlyoutNav from "../components/FlyoutNav";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
 import ReportForm from "../components/ReportForm"
-import '../home.css'
 import PostCard from "../components/PostCards";
 
 export default function HomePage() {
@@ -13,6 +12,8 @@ export default function HomePage() {
   useEffect(() => {
     getAllPosts().then(setPosts);
   }, []);
+
+
 
   return <>
 
@@ -23,6 +24,5 @@ export default function HomePage() {
       </div>
       <PostCard posts={posts} />
     </div>
-
   </>;
 }

@@ -16,7 +16,7 @@ const UsersLogo = () => {
 
     return (
         <div className="group relative">
-            <img className="w-10 h-10 rounded-full cursor-pointer" src="/docs/images/people/profile-picture-5.jpg" alt="User dropdown" />
+            <img className="w-10 h-10 rounded-full cursor-pointer" src={`${currentUser.picture}`} alt="User dropdown" />
             <div className="absolute right-0 hidden group-hover:flex flex-col bg-white rounded-lg shadow-lg">
                 <div className="px-4 py-3 text-gray-900">
                     <div>{currentUser.name}</div>

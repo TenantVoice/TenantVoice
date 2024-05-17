@@ -6,80 +6,97 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
 import FlyoutNav from "../components/FlyoutNav";
+import UploadWidget from "../components/UploadWidget";
 
 export default function SlideInAuth() {
     return (
         <>
             <FlyoutNav />
             <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
-                {/* <Logo /> */}
                 <Form />
                 <SupplementalContent />
             </section>
         </>
     );
-};
+}
 
 const Form = () => {
     const navigate = useNavigate();
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    const [formData, setFormData] = useState({
+        fullName: '',
+        username: '',
+        email: '',
+        password: '',
+        location: '',
+        picture: ''
+    });
     const [errorText, setErrorText] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // trying dropdown menu ; SN: on hold until location in model 
-    const [location, setLocation] = useState('hi');
-    const [options, setOptions] = useState([])
-    // ^^ ([]) because dropdown expected to handle options, best represented in an array 
+    const [options, setOptions] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
 
     if (currentUser) return <Navigate to="/" />;
 
+    const handleImageUpload = (url) => {
+        setFormData(prevData => ({
+            ...prevData,
+            picture: url,
+        }));
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorText('');
-        if (!username || !email || !password || !fullName || !location) return setErrorText(error.message);
+        const { username, email, password, fullName, location } = formData;
 
-        const [user, error] = await createUser({ username, email, password, fullName, location });
+        if (!username || !email || !password || !fullName || !location) return setErrorText("All fields are required");
+
+        const [user, error] = await createUser(formData);
         if (error) return setErrorText(error.message);
-
 
         setCurrentUser(user);
         navigate('/');
     };
-    // this is just testing for the dropdown, IGNOREEE 
-    const boroughs = ['Bronx', 'Brooklyn', 'Queens', 'Manhattan', 'Staten Island']
+
+    const boroughs = ['Bronx', 'Brooklyn', 'Queens', 'Manhattan', 'Staten Island'];
+
     const handleChange = (event) => {
         const { name, value } = event.target;
-        if (name === 'username') setUsername(value);
-        if (name === 'password') setPassword(value);
-        if (name === 'fullName') setFullName(value);
-        if (name === 'email') setEmail(value);
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+
         if (name === 'location') {
-            setLocation(value);
             const filteredOptions = value.length > 0 ? boroughs.filter(item =>
                 item.toLowerCase().includes(value.toLowerCase())
             ) : [];
             setOptions(filteredOptions);
             setShowDropdown(filteredOptions.length > 0);
-        };
+        }
     };
 
     const handleLocationChange = (value) => {
-        setLocation(value);
+        setFormData(prevData => ({
+            ...prevData,
+            location: value
+        }));
         setShowDropdown(false);
     };
 
+    const handleSelectOption = (option) => {
+        setFormData(prevData => ({
+            ...prevData,
+            location: option
+        }));
+        setShowDropdown(false);
+    };
 
     return (
-
         <motion.div
             initial="initial"
             whileInView="animate"
-            transition={{
-                staggerChildren: 0.05,
-            }}
+            transition={{ staggerChildren: 0.05 }}
             viewport={{ once: true }}
             className="flex items-center justify-center pb-4 pt-20 md:py-20"
         >
@@ -90,18 +107,15 @@ const Form = () => {
                 >
                     Create your account
                 </motion.h1>
-                <motion.p variants={primaryVariants} className="mb-8 text-center">
-                    something meaningful here ¿
-                </motion.p>
+                <motion.p variants={primaryVariants} className="mb-8 text-center"></motion.p>
 
                 <form onSubmit={handleSubmit} className="w-full">
                     {errorText && <p className="text-red-500">{errorText}</p>}
-                    {fullName}
+                    <UploadWidget onUpload={handleImageUpload} />
                     <motion.div variants={primaryVariants} className="mb-2 w-full">
                         <label htmlFor="fullName" className="mb-1 inline-block text-sm font-medium">
                             Full Name<span className="text-red-600">*</span>
                         </label>
-
                         <input
                             id="fullName"
                             name="fullName"
@@ -109,23 +123,26 @@ const Form = () => {
                             placeholder="Your name will only be visible to you"
                             className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                             onChange={handleChange}
-                            value={fullName}
+                            value={formData.fullName}
                             required
                         />
                         <label htmlFor="username">Username</label>
-
                         <input
                             autoComplete="off"
                             type="text"
                             id="username"
                             name="username"
                             onChange={handleChange}
-                            value={username}
+                            value={formData.username}
                         />
-
-                        <label htmlFor="email">email</label>
-                        <input type="text" id="email" name="email" onChange={handleChange} value={email} />
-
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            onChange={handleChange}
+                            value={formData.email}
+                        />
                         <label htmlFor="password">Password</label>
                         <input
                             autoComplete="off"
@@ -133,12 +150,9 @@ const Form = () => {
                             id="password"
                             name="password"
                             onChange={handleChange}
-                            value={password}
+                            value={formData.password}
                         />
-
                     </motion.div>
-                    {/* // locationnn */}
-
                     <motion.div variants={primaryVariants} className="mb-2 w-full">
                         <label htmlFor="location" className="mb-1 inline-block text-sm font-medium">
                             Location<span className="text-red-600">*</span>
@@ -149,14 +163,14 @@ const Form = () => {
                             name="location"
                             placeholder="Start typing location..."
                             className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                            // value={location}
-                            onChange={handleLocationChange}
+                            value={formData.location}
+                            onChange={handleChange}
                             autoComplete="off"
                             required
                         />
                         {showDropdown && (
                             <ul className="absolute w-full bg-white border border-slate-300 z-10">
-                                {boroughs.map((option, index) => (
+                                {options.map((option, index) => (
                                     <li
                                         key={index}
                                         className="px-2.5 py-1.5 hover:bg-slate-100 cursor-pointer"
@@ -168,9 +182,6 @@ const Form = () => {
                             </ul>
                         )}
                     </motion.div>
-
-
-
                     <motion.button
                         variants={primaryVariants}
                         whileTap={{ scale: 0.985 }}

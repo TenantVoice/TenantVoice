@@ -4,7 +4,6 @@ import PostCard from "../components/PostCards";
 import CurrentUserContext from "../contexts/current-user-context";
 import FlyoutNav from "../components/FlyoutNav";
 
-
 const Dashboard = () => {
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
     const [posts, setPosts] = useState([]);
@@ -13,15 +12,11 @@ const Dashboard = () => {
         getAllPosts().then(setPosts);
     }, []);
 
-    console.log(posts)
     const filteredPost = posts.filter((post) => post.user_id === currentUser.id);
 
     return (
-
         <div>
-            <div>
-                <FlyoutNav />
-            </div>
+            <FlyoutNav />
             <PostCard posts={filteredPost} />
         </div>
 

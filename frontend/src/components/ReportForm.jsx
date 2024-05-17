@@ -10,6 +10,7 @@ export default function ReportForm({ setPosts }) {
     const [description, setDescription] = useState()
     const currentUserId = currentUser?.id
 
+
     // console.log(currentUser)
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -18,6 +19,8 @@ export default function ReportForm({ setPosts }) {
         const [newPost, error] = await createPost({ category, description, user_id: currentUserId });
         if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
         if (error) return setErrorText(error.message);
+
+        setPosts(prevPosts => [newPost, ...prevPosts])
 
         event.target.reset();
     };

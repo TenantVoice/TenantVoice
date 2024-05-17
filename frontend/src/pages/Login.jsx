@@ -4,6 +4,7 @@ import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
 import FlyoutNav from "../components/FlyoutNav";
+import UploadWidget from "../components/UploadWidget";
 
 export default function LoginPage() {
   const navigate = useNavigate();
