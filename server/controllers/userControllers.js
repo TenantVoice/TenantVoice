@@ -37,3 +37,7 @@ exports.updateUser = async (req, res) => {
   if (!updatedUser) return res.sendStatus(404);
   res.send(updatedUser);
 };
+
+// exports.getUserById = async (req, res) => {
+//   const
+// }
