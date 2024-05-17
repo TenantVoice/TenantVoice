@@ -11,7 +11,9 @@ class Post {
   }
 
   static async getAllPosts() {
-    const query = `SELECT * FROM posts;`;
+    const query = `SELECT posts.*, users.username
+    FROM posts
+    JOIN users ON posts.user_id = users.id;`;
     const { rows } = await knex.raw(query);
     console.log(rows)
     return rows;

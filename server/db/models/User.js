@@ -1,5 +1,6 @@
 const knex = require('../knex');
 const authUtils = require('../../utils/auth-utils');
+const Post = require('../models/Post')
 
 class User {
   #passwordHash = null; // a private property
@@ -73,7 +74,6 @@ class User {
     return knex('users').del();
   }
 
-  // static async getUsername(username)
 }
 
 module.exports = User;
