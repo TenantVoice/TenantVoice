@@ -1,11 +1,14 @@
-
 //// trying Chakra :
 
 import { Box, Flex, Avatar, Heading, Text, IconButton, Image, Button, Grid } from '@chakra-ui/react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { BiLike, BiChat, BiShare } from 'react-icons/bi';
+import CurrentUserContext from '../contexts/current-user-context';
+import { useContext } from 'react';
 
 const NewPostCard = ({ posts }) => {
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+
     return (
         <Grid templateColumns="1fr 1fr" gap={6}>
             <Box> {/* Left column empty or for other content */}

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { logUserOut } from '../adapters/auth-adapter';
 import { useContext } from 'react';
 import CurrentUserContext from '../contexts/current-user-context';
+import { Box, Flex, Avatar, Heading, Text, IconButton, Image, Button, Grid } from '@chakra-ui/react';
 
 const UsersLogo = () => {
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
@@ -16,7 +17,7 @@ const UsersLogo = () => {
 
     return (
         <div className="group relative">
-            <img className="w-10 h-10 rounded-full cursor-pointer" src={`${currentUser.picture}`} alt="User dropdown" />
+            <Avatar src={currentUser.picture} />
             <div className="absolute right-0 hidden group-hover:flex flex-col bg-white rounded-lg shadow-lg">
                 <div className="px-4 py-3 text-gray-900">
                     <div>{currentUser.name}</div>
