@@ -2,8 +2,6 @@ import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Landing from './pages/Landing';
-
-
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
@@ -13,6 +11,7 @@ import FlyoutNav from './components/FlyoutNav';
 import SlideInAuth from './pages/NewSignUp';
 import NewLogin from './pages/NewLogin';
 import Dashboard from './pages/Dashboard';
+import { ChakraProvider } from '@chakra-ui/react'
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -20,22 +19,21 @@ export default function App() {
     checkForLoggedInUser().then(setCurrentUser);
   }, [setCurrentUser]);
 
-  return <>
-    {/* // changed this from SiteHeadingAndNav to FlyOut  */}
+  return (
+    <ChakraProvider>
+      <main>
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/login' element={<NewLogin />} />
+          <Route path='/sign-up' element={<SlideInAuth />} />
+          <Route path='/users' element={<UsersPage />} />
+          <Route path='/users/:id/dashboard' element={<Dashboard />} />
+          <Route path='/users/:id' element={<UserPage />} />
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </ChakraProvider>
+  );
 
-    <main>
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/' element={<Landing />} />
-        {/* // changed to NewLogin vv */}
-        <Route path='/login' element={<NewLogin />} />
-        {/* vv changed from SignUpPage to SlideinAuth vv */}
-        <Route path='/sign-up' element={<SlideInAuth />} />
-        <Route path='/users' element={<UsersPage />} />
-        <Route path='/users/:id/dashboard' element={<Dashboard />} />
-        <Route path='/users/:id' element={<UserPage />} />
-        <Route path='*' element={<NotFoundPage />} />
-      </Routes>
-    </main>
-  </>;
 }
