@@ -5,6 +5,9 @@ import FlyoutNav from "../components/FlyoutNav";
 import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
 import ReportForm from "../components/ReportForm"
 import PostCard from "../components/PostCards";
+import { ChakraProvider } from '@chakra-ui/react'
+import NewPostCard from "../components/PostCards";
+
 
 export default function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -22,7 +25,12 @@ export default function HomePage() {
       <div className="pr-10">
         <ReportForm setPosts={setPosts} />
       </div>
-      <PostCard posts={posts} />
+      {/* //changing this to NewPostCard
+      <PostCard posts={posts} /> */}
+      <ChakraProvider>
+        <NewPostCard posts={posts} />
+      </ChakraProvider>
+
     </div>
   </>;
 }
