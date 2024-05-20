@@ -13,7 +13,12 @@ const NewPostCard = ({ posts }) => {
                             <Flex flex='1' gap='4' alignItems='center'>
                                 <Avatar name={post.username} src={post.photo_url || 'defaultAvatarUrl'} />
                                 <Box>
-                                    <Text fontSize='sm'>{post.problem_duration}</Text>
+                                    <Heading size='sm'>{post.username}</Heading>
+                                    {console.log(post?.username)}
+
+                                    <Text fontSize='sm' >{post.category} </Text>
+
+                                    {console.log(getUser(post.user_id))}
                                 </Box>
                             </Flex>
                             <IconButton
