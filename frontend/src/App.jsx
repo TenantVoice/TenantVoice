@@ -12,6 +12,7 @@ import SlideInAuth from './pages/NewSignUp';
 import NewLogin from './pages/NewLogin';
 import Dashboard from './pages/Dashboard';
 import { ChakraProvider } from '@chakra-ui/react'
+import PostPage from './pages/Post';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -24,12 +25,14 @@ export default function App() {
       <main>
         <Routes>
           <Route path='/home' element={<Home />} />
+          <Route path='/home/:id' element={<PostPage />} />
           <Route path='/' element={<Landing />} />
           <Route path='/login' element={<NewLogin />} />
           <Route path='/sign-up' element={<SlideInAuth />} />
           <Route path='/users' element={<UsersPage />} />
           <Route path='/users/:id/dashboard' element={<Dashboard />} />
           <Route path='/users/:id' element={<UserPage />} />
+          {/* <Route path='/home/posts/:id' element={<PostPage />} /> */}
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </main>

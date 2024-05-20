@@ -227,28 +227,20 @@ exports.seed = async (knex) => {
 
   await knex('posts').insert([
     {
-      "user_id": 1,
-      "location_id": 1,
-      "category": "mold",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a lot of mold on my ceiling",
-      "picture": "mold.png"
-    },
-    {
-      "user_id": 2,
-      "location_id": 2,
-      "category": "infestation",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "There are roaches infested in my kitchen",
-      "picture": "roaches.png"
-    },
-    {
       "user_id": 3,
       "location_id": 3,
       "category": "structural damage",
       "created_at": "2024-05-15T12:00:00Z",
       "description": "There's a crack in the wall of my living room",
       "picture": "crack.png"
+    },
+    {
+      "user_id": 6,
+      "location_id": 6,
+      "category": "electrical issue",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "There's a short circuit in the living room",
+      "picture": "short_circuit.png"
     },
     {
       "user_id": 4,
@@ -265,14 +257,6 @@ exports.seed = async (knex) => {
       "created_at": "2024-05-15T12:00:00Z",
       "description": "My apartment is infested with bed bugs",
       "picture": "bedbugs.png"
-    },
-    {
-      "user_id": 6,
-      "location_id": 6,
-      "category": "electrical issue",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a short circuit in the living room",
-      "picture": "short_circuit.png"
     },
     {
       "user_id": 7,
@@ -345,6 +329,22 @@ exports.seed = async (knex) => {
       "created_at": "2024-05-15T12:00:00Z",
       "description": "There's mold growing on the bathroom tiles",
       "picture": "mold_tiles.png"
+    },
+    {
+      "user_id": 1,
+      "location_id": 1,
+      "category": "mold",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "There's a lot of mold on my ceiling",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.environix.com%2Fwp-content%2Fuploads%2FBlack-mold-on-ceiling-2.jpeg&f=1&nofb=1&ipt=3884a03fe67dfc8c1445ac121b70caf4cf84ca2fa8b38a49a752e1400e90251d&ipo=images"
+    },
+    {
+      "user_id": 2,
+      "location_id": 2,
+      "category": "infestation",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "There are roaches infested in my kitchen",
+      "picture": "roaches.png"
     },
   ]);
 };
