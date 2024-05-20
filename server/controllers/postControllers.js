@@ -45,3 +45,11 @@ exports.deletePost = async (req, res) => {
   );
   res.send(post);
 }
+
+exports.getPost = async (req, res) => {
+  const { id } = req.params;
+  const post = Post.getPostById(
+    id
+  );
+  res.send(post);
+}
