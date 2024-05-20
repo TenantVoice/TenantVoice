@@ -4,6 +4,7 @@ import PostCard from "../components/PostCards";
 import CurrentUserContext from "../contexts/current-user-context";
 import FlyoutNav from "../components/FlyoutNav";
 
+
 const Dashboard = () => {
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
     const [posts, setPosts] = useState([]);
@@ -19,7 +20,6 @@ const Dashboard = () => {
             <FlyoutNav />
             <PostCard posts={filteredPost} />
         </div>
-
     )
 }
 

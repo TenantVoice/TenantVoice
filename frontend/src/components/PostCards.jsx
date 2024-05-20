@@ -1,17 +1,22 @@
-
 //// trying Chakra :
 
 import { Box, Flex, Avatar, Heading, Text, IconButton, Image, Button, Grid } from '@chakra-ui/react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+
 import { BiLike, BiChat, BiShare } from 'react-icons/bi';
 import { Link } from "react-router-dom";
+import { getUser } from '../adapters/user-adapter.js';
+// import { BiLike, BiChat, BiShare } from 'react-icons/bi';
+// import { createContext } from 'react';
+
+
 
 const NewPostCard = ({ posts }) => {
 
     return (
         <Grid templateColumns="1fr 1fr" gap={6}>
-            <Box> {/* Left column empty or for other content */}
-            </Box>
+            <Box>
+   
             <Box> {/* Right column for posts */}
                 {posts?.map(post => (
                     <Link to={`/home/${post.id}`}>
@@ -30,6 +35,7 @@ const NewPostCard = ({ posts }) => {
                                     aria-label='See menu'
                                     icon={<BsThreeDotsVertical />}
                                 />
+
                             </Flex>
                             <Image
                                 src={post.image || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12'}
@@ -46,6 +52,7 @@ const NewPostCard = ({ posts }) => {
                                     <Button flex='1' variant='ghost' leftIcon={<BiShare />}>Share</Button>
                                 </Flex> */}
                             </Box>
+
                         </Box>
                     </Link>
                 ))}

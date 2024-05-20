@@ -37,3 +37,14 @@ exports.updateUser = async (req, res) => {
   if (!updatedUser) return res.sendStatus(404);
   res.send(updatedUser);
 };
+
+exports.getUsernameById = async (req, res) => {
+  const { id } = req.body;
+  const username = await User.getUsernameById(id)
+
+  res.send(username);
+}
+
+// exports.getUserById = async (req, res) => {
+//   const
+// }

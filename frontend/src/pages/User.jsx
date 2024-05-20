@@ -22,7 +22,6 @@ export default function UserPage() {
       setUserProfile(user);
     };
 
-
     loadUser();
   }, [id]);
 
