@@ -72,6 +72,8 @@ class User {
   static async deleteAll() {
     return knex('users').del();
   }
+
+  // static async getUsername(username)
 }
 
 module.exports = User;
