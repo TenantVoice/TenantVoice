@@ -16,7 +16,7 @@ import FlyoutNav from "../components/FlyoutNav";
 // import MobileMenu from "../components/MobileMenu";
 import { ColorChangeCards, Cards } from "../components/LandingCards";
 import { CountUpStats } from "../components/Stats";
-
+import CardCarousel from "../components/Carousel";
 
 export default function Example() {
     return (
@@ -26,7 +26,7 @@ export default function Example() {
             <div
                 className="relative min-h-screen"
                 style={{
-                    backgroundImage: "url(../famAtBeach.png)",
+                    backgroundImage: "url(../news-articles.png)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
@@ -41,7 +41,7 @@ export default function Example() {
 
                 <div className="cards-container" style={{ marginTop: '20px' }}>
                     {/* <ColorChangeCards /> */}
-                    <Cards
+                    {/* <Cards
                         heading="Our Mission"
                         description="TenantVoice aims to enhance public housing by providing a platform for tenants to report issues and collaborate with neighbors, promoting accountability and empowering advocacy."
                         imgSrc="../weAreOne.jpg"
@@ -63,8 +63,8 @@ export default function Example() {
                         }
                         imgSrc="../protester.jpg"
 
-                    />
-
+                    /> */}
+                    < CardCarousel />
                 </div>
 
             </div>
