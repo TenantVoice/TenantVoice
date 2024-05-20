@@ -12,18 +12,34 @@ export default function ReportForm({ setPosts }) {
 
 
     // console.log(currentUser)
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     console.log(category, description, problem_duration, currentUserId)
+    //     const [newPost, error] = await createPost({ category, description, user_id: currentUserId });
+    //     if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
+    //     if (error) return setErrorText(error.message);
+
+    //     setPosts(prevPosts => [newPost, ...prevPosts])
+
+    //     event.target.reset();
+    // };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        console.log(category, description, problem_duration, currentUserId)
-        const [newPost, error] = await createPost({ category, description, user_id: currentUserId });
-        if (!category || !problem_duration || !currentUser.id) return setErrorText(error.message);
-        if (error) return setErrorText(error.message);
-
-        setPosts(prevPosts => [newPost, ...prevPosts])
-
-        event.target.reset();
+        const postData = { category, description, user_id: currentUserId, problem_duration };
+        const [newPost, error] = await createPost(postData);
+        if (!category || !problem_duration || !currentUser.id) return setErrorText("Missing information");
+        if (error) {
+            setErrorText(error.message);
+            return;
+        }
+        setPosts(prevPosts => [newPost, ...prevPosts]);
+        setDescription('');
+        setProblem_duration('');
+        setCategory('Infestation');
     };
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,6 +48,8 @@ export default function ReportForm({ setPosts }) {
         if (name === 'problem_duration') setProblem_duration(value);
         if (name === 'description') setDescription(value);
     };
+
+
     return (
         <form onSubmit={handleSubmit}>
             <aside id="default-sidebar" className="fixed top-10 left-0 z-40 w-96 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-50 dark:bg-gray-800" aria-label="Sidebar">
@@ -76,5 +94,5 @@ export default function ReportForm({ setPosts }) {
             </aside>
         </form>
     );
-}
+};
 
