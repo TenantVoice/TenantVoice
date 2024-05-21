@@ -34,8 +34,9 @@ const NewPostCard = ({ posts }) => {
                         </Box>
                     </Link>
                 </Box>
-            ))}
-        </Grid>
+            ))
+            }
+        </Grid >
     );
 };
 
