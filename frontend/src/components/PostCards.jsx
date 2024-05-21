@@ -10,7 +10,8 @@ const NewPostCard = ({ posts }) => {
                 <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                     <Flex padding='4' align='center' justify='space-between'>
                         <Flex flex='1' gap='4' alignItems='center'>
-                            <Avatar name={post.username} src={post.photo_url || 'defaultAvatarUrl'} />
+                            {console.log(post.user_picture)}
+                            <Avatar name={post.username} src={post.user_picture || 'defaultAvatarUrl'} />
                             <Box>
                                 <Heading size='sm'>{post.username}</Heading>
                                 <Text fontSize='sm' >{post.category}</Text>

@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     getAllPosts().then(setPosts);
   }, []);
-
+  console.log(posts);
 
 
   return <>
@@ -25,8 +25,6 @@ export default function HomePage() {
       <div className="pr-10">
         <ReportForm setPosts={setPosts} />
       </div>
-      {/* //changing this to NewPostCard
-      <PostCard posts={posts} /> */}
       <ChakraProvider>
         <NewPostCard posts={posts} />
       </ChakraProvider>
