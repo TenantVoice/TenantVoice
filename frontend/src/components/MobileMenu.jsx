@@ -3,10 +3,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileMenuLink from "./MobileMenuLink";
 import { FiMenu, FiX, FiArr, FiChevronDown, FiChevronRight, FiChevronsDown } from "react-icons/fi";
-import CurrentUserContext from "../contexts/current-user-context";
-import linksConfig from "../../links.config";
-
-
 
 export default function MobileMenu() {
     const [open, setOpen] = useState(false);
