@@ -19,8 +19,11 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "chart.js": "^4.4.3",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.2.4",
-    "knex": "^3.1.0"
+    "knex": "^3.1.0",
+    "react-chartjs-2": "^5.2.0",
+    "recharts": "^2.12.7"
   }
 }

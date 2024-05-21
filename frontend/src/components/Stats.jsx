@@ -4,9 +4,9 @@ import { animate, useInView } from "framer-motion";
 export const CountUpStats = () => {
     return (
         <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
-            <h2 className="mb-8 text-center text-base text-indigo-900 sm:text-lg md:mb-16">
+            <h2 className="mb-8 text-center text-base text-slate-100 sm:text-lg md:mb-16">
                 As of
-                <span className="text-poppy"> 2023 </span>
+                <span className="text-slate-100"> 2023 </span>
             </h2>
 
             <div className="flex flex-col items-center justify-center sm:flex-row">
@@ -59,7 +59,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
                 <span ref={ref}></span>
                 {suffix}
             </p>
-            <p className="max-w-48 text-center text-neutral-600">{subheading}</p>
+            <p className="max-w-48 text-center text-slate-100">{subheading}</p>
         </div>
     );
 };
