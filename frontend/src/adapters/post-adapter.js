@@ -2,7 +2,6 @@
 // with the provided body and the remaining options
 import { fetchHandler, getPostOptions, getPatchOptions } from "../utils";
 
-
 const baseUrl = '/api/posts';
 
 export const createPost = async ({ category, description, user_id }) => (
@@ -16,7 +15,10 @@ export const getAllPosts = async () => {
 
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
 
-export const getPosts = async (id) => fetchHandler(`${baseUrl}/post/${id}`);
+export const getPostById = async (id) => {
+    const [post] = await fetchHandler(`${baseUrl}/${id}`)
+    return post || [];
+};
 
 export const updateDescription = async ({ id, description }) => (
     fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, description }))

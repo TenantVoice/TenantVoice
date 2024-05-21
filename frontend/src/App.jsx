@@ -11,7 +11,7 @@ import FlyoutNav from './components/FlyoutNav';
 import SlideInAuth from './pages/NewSignUp';
 import NewLogin from './pages/NewLogin';
 import Dashboard from './pages/Dashboard';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 import PostPage from './pages/Post';
 
 export default function App() {
@@ -32,11 +32,9 @@ export default function App() {
           <Route path='/users' element={<UsersPage />} />
           <Route path='/users/:id/dashboard' element={<Dashboard />} />
           <Route path='/users/:id' element={<UserPage />} />
-          {/* <Route path='/home/posts/:id' element={<PostPage />} /> */}
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </main>
     </ChakraProvider>
   );
-
 }
