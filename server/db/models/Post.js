@@ -20,7 +20,11 @@ class Post {
   }
 
   static async getPostById(id) {
-    const query = `SELECT * FROM posts WHERE id = ?`;
+    const query = `
+    SELECT posts.*, users.username
+    FROM posts
+    JOIN users ON posts.user_id = users.id
+    WHERE posts.id = ?`;
     const { rows } = await knex.raw(query, [id]);
     return rows[0];
   }
@@ -45,4 +49,11 @@ class Post {
   }
 }
 
+const main = async () => {
+  const mo = new Post("mold", "mold in the sink", 'default-placeholder', 29, 2)
+  const post = await Post.getPostById(29)
+  console.log(post)
+}
+
+main();
 module.exports = Post;
