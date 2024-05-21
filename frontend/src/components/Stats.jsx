@@ -5,8 +5,8 @@ export const CountUpStats = () => {
     return (
         <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
             <h2 className="mb-8 text-center text-base text-indigo-900 sm:text-lg md:mb-16">
-                According to NYCHA
-                <span className="text-indigo-500"> As of 2023 </span>
+                As of
+                <span className="text-poppy"> 2023 </span>
             </h2>
 
             <div className="flex flex-col items-center justify-center sm:flex-row">
@@ -23,7 +23,7 @@ export const CountUpStats = () => {
                     num={25}
                     // decimals={1}
                     suffix="%"
-                    subheading="Of NYCHA residents say their living conditions directly affects their physical health"
+                    subheading="Of residents say their living conditions directly affects their physical health"
                 />
                 <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
                 <Stat
@@ -55,7 +55,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
 
     return (
         <div className="flex w-72 flex-col items-center py-8 sm:py-0">
-            <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl text-radish">
+            <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl text-poppy">
                 <span ref={ref}></span>
                 {suffix}
             </p>

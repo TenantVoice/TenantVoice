@@ -17,13 +17,13 @@ import FlyoutNav from "../components/FlyoutNav";
 import { ColorChangeCards, Cards } from "../components/LandingCards";
 import { CountUpStats } from "../components/Stats";
 import CardCarousel from "../components/Carousel";
-
+import WaterDropHero from "../components/HeroText";
 export default function Example() {
     return (
         <>
             <FlyoutNav />
 
-            <div
+            {/* <div
                 className="relative min-h-screen"
                 style={{
                     backgroundImage: "url(../news-articles.png)",
@@ -33,7 +33,8 @@ export default function Example() {
             >
 
                 <div className="absolute inset-0 z-0 bg-gradient-to-b from-neutral-950/90 to-neutral-950/0" />
-            </div>
+            </div> */}
+            <WaterDropHero />
             <CountUpStats />
             <div className="content-container" style={{ padding: '20px' }}>
 
@@ -41,10 +42,12 @@ export default function Example() {
 
                 <div className="cards-container" style={{ marginTop: '20px' }}>
 
-                    <div className="missionStatement">
+                    <div class="bg-indigo">
+                        <div class="mx-auto max-w-2xl lg:mx-0">
+                            <h2 class="text-4xl font-bold tracking-tight text-oxford sm:text-6xl">We know that safe housing is a human right</h2>
+                            <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                        </div>
 
-                        <h2> Who we are</h2>
-                        <p> Tenant voice does xyz</p>
 
                     </div>
                     < CardCarousel />
