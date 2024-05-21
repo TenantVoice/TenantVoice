@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../adapters/post-adapter";
 import FlyoutNav from "../components/FlyoutNav";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Box, Image, Text, Avatar } from '@chakra-ui/react';
 
 export default function HomePage() {
@@ -20,12 +20,16 @@ export default function HomePage() {
             <div className="flex justify-center mt-16">
                 <div className="w-full max-w-4xl p-4 bg-white rounded-lg shadow-md">
                     <div className="flex items-center mb-4">
-                        <Avatar
-                            name={post?.username}
-                            src={post?.user_picture || 'defaultAvatarUrl'}
-                            className="mr-4"
-                        />
-                        <Text className="text-lg font-semibold">{post?.username}</Text>
+                        <Link to={`/users/${post?.user_id}`}>
+                            <Avatar
+                                name={post?.username}
+                                src={post?.user_picture || 'defaultAvatarUrl'}
+                                className="mr-4"
+                            />
+                        </Link>
+                        <Link to={`/users/${post?.user_id}`}>
+                            <Text className="text-lg font-semibold">{post?.username}</Text>
+                        </Link>
                     </div>
 
                     <div className="mb-4">
