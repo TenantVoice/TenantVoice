@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Logo({ color = "white" }) {
-    // Temp logo from https://logoipsum.com/
     return (
         <div className="flex items-center gap-2">
             <span className="text-2xl font-bold" style={{ color }}>
@@ -12,7 +11,6 @@ export default function Logo({ color = "white" }) {
                 height="39"
                 viewBox="0 0 50 39"
                 fill={color}
-                // xmlns="http://www.w3.org/2000/svg"
                 className="w-10"
             >
                 <path

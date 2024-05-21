@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../adapters/post-adapter";
-import PostLink from "../components/UserLink";
 import FlyoutNav from "../components/FlyoutNav";
-import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
 import ReportForm from "../components/ReportForm"
-import PostCard from "../components/PostCards";
 import { ChakraProvider } from '@chakra-ui/react'
 import NewPostCard from "../components/PostCards";
 
@@ -26,7 +23,7 @@ export default function HomePage() {
       </div>
       <ul className="posts-list">
         {
-          posts.map((post) => {
+          posts?.map((post) => {
             return <li key={post.id}>
               <ChakraProvider>
                 <NewPostCard post={post} />

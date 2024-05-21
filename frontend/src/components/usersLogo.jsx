@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { useParams } from 'react-router-dom';
 import { logUserOut } from '../adapters/auth-adapter';
 import { useContext } from 'react';
 import CurrentUserContext from '../contexts/current-user-context';
@@ -25,7 +24,7 @@ const UsersLogo = () => {
                 </div>
                 <ul className="py-2 text-gray-900 flex-col">
                     <li>
-                        <li><NavLink to={`/users/${currentUser.id}/dashboard`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Profile</NavLink></li>
+                        <NavLink to={`/users/${currentUser.id}/dashboard`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Profile</NavLink>
                     </li>
                     <li>
                         <NavLink to={`/users/${currentUser.id}`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Settings</NavLink>

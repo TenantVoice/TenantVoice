@@ -1,36 +1,26 @@
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../adapters/post-adapter";
-import PostLink from "../components/UserLink";
 import FlyoutNav from "../components/FlyoutNav";
-import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
-import ReportForm from "../components/ReportForm"
-import PostCard from "../components/PostCards";
-import { ChakraProvider } from '@chakra-ui/react'
-import NewPostCard from "../components/PostCards";
+import { useParams } from "react-router-dom";
 
 
 export default function HomePage() {
-    const [posts, setPosts] = useState([]);
-
+    const [newPosts, setPosts] = useState([]);
+    const { id } = useParams();
     useEffect(() => {
         getAllPosts().then(setPosts);
     }, []);
 
-
-
+    const posts = newPosts?.filter((post) => post.id === parseInt(id));
+    console.log(posts);
     return <>
-
         <FlyoutNav />
         <div className="flex pl-10 mt-[60px]">
-            <div className="pr-10">
-                <ReportForm setPosts={setPosts} />
-            </div>
-            {/* //changing this to NewPostCard
-      <PostCard posts={posts} /> */}
-            <ChakraProvider>
-                <NewPostCard posts={posts} />
-            </ChakraProvider>
-
+            <ul>
+                <li>
+                    {posts.username}
+                </li>
+            </ul>
         </div>
     </>;
 }
