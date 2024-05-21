@@ -27,7 +27,6 @@ export default function HomePage() {
       <ChakraProvider>
         <NewPostCard posts={posts} />
       </ChakraProvider>
-
     </div>
   </>;
 }

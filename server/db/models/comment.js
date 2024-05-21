@@ -1,4 +1,4 @@
-const knex = require('knex');
+const knex = require('../knex');
 
 class Comment {
 
@@ -7,6 +7,9 @@ class Comment {
         INSERT INTO comments(comment, user_id, post_id) VALUES(?, ?, ?)
         `
         const { rows } = await knex.raw(query, [comment, user_id, post_id]);
+
         return rows[0];
     }
 }
+
+module.exports = Comment;
