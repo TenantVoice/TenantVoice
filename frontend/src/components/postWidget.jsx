@@ -21,7 +21,7 @@ const PostWidget = ({ onUpload }) => {
     }, []);
 
     return (
-        <button
+        <button type="button"
             onClick={() => widgetRef.current.open()}
             className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >

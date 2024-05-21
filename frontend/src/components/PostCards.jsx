@@ -4,13 +4,13 @@ import { Box, Flex, Avatar, Text, IconButton, Image, Grid, Heading } from '@chak
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useState } from 'react';
 import LikesButton from "./LikesButton";
-
+import { getUser } from "../adapters/user-adapter";
 
 // for specific avatar colors 
 const avatarColors = ["blue.200", "green.200", "orange.200", "cyan.200", "teal.200"];
 
 function getAvatarColor(username) {
-    const index = Math.abs(username.charCodeAt(0) + username.length) % avatarColors.length;
+    const index = Math.abs(username?.charCodeAt(0) + username.length) % avatarColors.length;
     return avatarColors[index];
 };
 
@@ -58,7 +58,7 @@ const NewPostCard = ({ post }) => {
                 <Link to={`/posts/${post.id}`} key={post.id}>
                     {/* //temp photo so i can see  */}
                     <Image
-                        src={post.image || '../weAreOne.jpg'}
+                        src={post.picture || '../weAreOne.jpg'}
                         alt='Post image'
                         fit='cover'
                     />

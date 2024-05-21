@@ -9,8 +9,8 @@ export const createPost = async ({ category, description, picture, user_id, prob
 );
 //static async addPost(category, description, picture, previously_reported = false, user_id, location_id)
 export const getAllPosts = async () => {
-    const [post] = await fetchHandler(baseUrl);
-    return post || [];
+    const [posts] = await fetchHandler(baseUrl);
+    return posts || [];
 };
 
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
