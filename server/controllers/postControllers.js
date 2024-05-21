@@ -14,7 +14,7 @@ exports.getPostById = async (req, res) => {
 };
 // changed this to addPost in order to match model method
 exports.addPost = async (req, res) => {
-  const { category, description, picture, user_id, location_id } = req.body;
+  const { category, description, picture, user_id, location_id, problem_duration } = req.body;
 
   if (!user_id) res.sendStatus(400);
 
@@ -24,6 +24,7 @@ exports.addPost = async (req, res) => {
     picture,
     user_id,
     location_id,
+    problem_duration
   );
 
   res.send(post);

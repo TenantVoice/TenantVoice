@@ -9,7 +9,7 @@ export default function SiteHeadingAndNav() {
     <a id='logo' href='/'>TenantVoice</a>
     <nav>
       <ul>
-        <li><NavLink to='/home'>Home</NavLink></li>
+        <li><NavLink to='/posts'>Posts</NavLink></li>
 
         {
           currentUser

@@ -23,9 +23,9 @@ const NewPostCard = ({ posts }) => {
                             icon={<BsThreeDotsVertical />}
                         />
                     </Flex>
-                    <Link to={`/home/${post.id}`} key={post.id}>
+                    <Link to={`/posts/${post.id}`} key={post.id}>
                         <Image
-                            src={post.image || 'defaultImageURL'}
+                            src={post.picture || 'defaultImageURL'}
                             alt='Post image'
                             fit='cover'
                         />

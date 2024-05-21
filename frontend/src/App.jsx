@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/Posts';
 import Landing from './pages/Landing';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
@@ -24,8 +24,8 @@ export default function App() {
     <ChakraProvider>
       <main>
         <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/home/:id' element={<PostPage />} />
+          <Route path='/posts' element={<Home />} />
+          <Route path='/posts/:id' element={<PostPage />} />
           <Route path='/' element={<Landing />} />
           <Route path='/login' element={<NewLogin />} />
           <Route path='/sign-up' element={<SlideInAuth />} />

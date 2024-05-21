@@ -29,10 +29,10 @@ class Post {
     return rows[0];
   }
 
-  static async addPost(category, description, picture = 'default_placeholder', user_id, location_id = 1) {
-    console.log(category, description, location_id, user_id)
-    const query = `INSERT INTO posts(category, description, picture, user_id, location_id) VALUES (?, ?, ?, ?, ?);`
-    const { rows } = await knex.raw(query, [category, description, picture, user_id, location_id]);
+  static async addPost(category, description, picture = 'default_placeholder', user_id, location_id = 1, problem_duration) {
+    console.log(category, description, picture, location_id, user_id, problem_duration);
+    const query = `INSERT INTO posts(category, description, picture, user_id, location_id, problem_duration) VALUES (?, ?, ?, ?, ?, ?);`
+    const { rows } = await knex.raw(query, [category, description, picture, user_id, location_id, problem_duration]);
     return rows[0];
   }
 

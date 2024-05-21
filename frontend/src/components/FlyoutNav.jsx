@@ -24,7 +24,7 @@ export default function FlyoutNav({ setCurrentUser }) {
                     TenantVoice
                 </NavLink>
                 <ul className="flex items-center space-x-4">
-                    <li><NavLink to='/home' className="hover:text-radish">Home</NavLink></li>
+                    <li><NavLink to='/posts' className="hover:text-radish">Posts</NavLink></li>
                     {currentUser ? (
                         <>
                             <li><NavLink to='/users' className="hover:text-radish" end>Users</NavLink></li>
