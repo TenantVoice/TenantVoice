@@ -40,7 +40,7 @@ const NewPostCard = ({ posts }) => {
                             icon={<BsThreeDotsVertical />}
                         />
                     </Flex>
-                    <Link to={`/home/${post.id}`} key={post.id}>
+                    <Link to={`/posts/${post.id}`} key={post.id}>
                         {/* //temp photo so i can see  */}
                         <Image
                             src={post.image || '../weAreOne.jpg'}
