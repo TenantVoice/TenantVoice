@@ -27,7 +27,7 @@ export default function FlyoutNav({ setCurrentUser }) {
                     <li><NavLink to='/posts' className=" transition-colors hover: rounded border-indigo-600 hover:bg-indigo-600 text-white">Posts</NavLink></li>
                     {currentUser ? (
                         <>
-                            <li><NavLink to='/users' className="htransition-colors hover: rounded border-indigo-600 hover:bg-indigo-600 text-whit" end>Users</NavLink></li>
+                            <li><NavLink to='/data' className="htransition-colors hover: rounded border-indigo-600 hover:bg-indigo-600 text-whit" end>Data</NavLink></li>
                             <li><UsersLogo currentUser={currentUser} setCurrentUser={setCurrentUser} /></li>
                         </>
                     ) : (

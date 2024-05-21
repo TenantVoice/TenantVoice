@@ -13,6 +13,7 @@ import NewLogin from './pages/NewLogin';
 import Dashboard from './pages/Dashboard';
 import { ChakraProvider } from '@chakra-ui/react';
 import PostPage from './pages/Post';
+import DataVisuals from './pages/DataVisuals';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -33,6 +34,8 @@ export default function App() {
           <Route path='/users/:id/dashboard' element={<Dashboard />} />
           <Route path='/users/:id' element={<UserPage />} />
           <Route path='*' element={<NotFoundPage />} />
+          {/* //adding data route */}
+          <Route path='/Data' element={<DataVisuals />} />
         </Routes>
       </main>
     </ChakraProvider>
