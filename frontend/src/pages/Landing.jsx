@@ -37,15 +37,10 @@ export default function Example() {
             <CountUpStats />
             <div className="content-container" style={{ padding: '20px' }}>
 
-
-
                 <div className="cards-container" style={{ marginTop: '20px' }}>
-
                     <div className="missionStatement">
-
                         <h2> Who we are</h2>
                         <p> Tenant voice does xyz</p>
-
                     </div>
                     < CardCarousel />
                 </div>
@@ -54,28 +49,3 @@ export default function Example() {
         </>
     );
 };
-
-{/* <ColorChangeCards /> */ }
-{/* <Cards
-                        heading="Our Mission"
-                        description="TenantVoice aims to enhance public housing by providing a platform for tenants to report issues and collaborate with neighbors, promoting accountability and empowering advocacy."
-                        imgSrc="../weAreOne.jpg"
-                    />
-                    <Cards
-                        heading="The Problem"
-                        description="Public housing residents often endure unresolved maintenance issues that degrade living conditions and pose health risks. Without a platform to unite and voice their concerns, tenants struggle to communicate and take collective action to demand improvements."
-                        imgSrc="../ambulance.jpg"
-
-                    />
-                    <Cards
-                        heading="What You Can Do"
-                        description={
-                            <ul>
-                                <li><strong>Report:</strong> Post about housing issues, include the category of the problem and how long it's been going on for.</li>
-                                <li><strong>Magnitude:</strong> View data visuals detailing housing issues locally and across NYCHA.</li>
-                                <li><strong>Community:</strong> Two separate feeds show posts from your own complex and from all NYCHA residents.</li>
-                            </ul>
-                        }
-                        imgSrc="../protester.jpg"
-
-                    /> */}

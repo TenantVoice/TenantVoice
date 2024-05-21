@@ -11,6 +11,4 @@ postRouter.get('/:id', postControllers.getPostById);
 postRouter.patch('/:id', checkAuthentication, postControllers.updateDescription);
 postRouter.delete('/:id', checkAuthentication, postControllers.deletePost);
 
-
-
 module.exports = postRouter;
