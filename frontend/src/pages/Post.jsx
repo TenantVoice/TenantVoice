@@ -7,7 +7,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { getAllPosts } from "../adapters/post-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function PostPage({ }) {
+export default function PostPage({ posts }) {
     const { id } = useParams();
     const [newPosts, setPosts] = useState([]);
     const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ export default function PostPage({ }) {
                 <Box key={post[0]?.id} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                     <Flex padding='4' align='center' justify='space-between'>
                         <Flex flex='1' gap='4' alignItems='center'>
-                            <Avatar name={currentUser?.username} src={currentUser?.picture || 'defaultAvatarUrl'} />
+                            <Avatar name={posts[?.username} src={posts[0]?.picture || 'defaultAvatarUrl'} />
                             <Box>
                                 <Heading size='sm'>{post[0]?.username}</Heading>
                                 <Text fontSize='sm'>{post[0]?.problem_duration}</Text>

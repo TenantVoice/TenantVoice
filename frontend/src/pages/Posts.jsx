@@ -17,7 +17,6 @@ export default function HomePage() {
   }, []);
   console.log(posts);
 
-
   return <>
 
     <FlyoutNav />
