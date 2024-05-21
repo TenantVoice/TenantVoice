@@ -41,6 +41,16 @@ class Post {
     return rows[0];
   }
 
+  static async getAllCommentByPostId(id) {
+    const query = `
+    SELECT comment.*, users.username
+    FROM comment
+    JOIN users ON comment.user_id = users.id
+    WHERE comment.post_id = ?`;
+    const { rows } = await knex.raw(query, [id]);
+    return rows;
+  }
+
   static async updateDescription(id, description) {
     const query = `UPDATE posts SET description=? WHERE id=?`;
     const { rows } = await knex.raw(query, [id, description]);
