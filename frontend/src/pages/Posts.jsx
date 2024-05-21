@@ -26,7 +26,7 @@ export default function HomePage() {
           posts?.map((post) => {
             return <li key={post.id}>
               <ChakraProvider>
-                <NewPostCard post={post} />
+                <NewPostCard post={post} key={post.id} />
               </ChakraProvider>
             </li>
           })

@@ -4,13 +4,13 @@ import { Box, Flex, Avatar, Text, IconButton, Image, Grid, Heading } from '@chak
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useState } from 'react';
 import LikesButton from "./LikesButton";
-
+import { getUser } from "../adapters/user-adapter";
 
 // for specific avatar colors 
 const avatarColors = ["blue.200", "green.200", "orange.200", "cyan.200", "teal.200"];
 
 function getAvatarColor(username) {
-    const index = Math.abs(username.charCodeAt(0) + username.length) % avatarColors.length;
+    const index = Math.abs(username?.charCodeAt(0) + username.length) % avatarColors.length;
     return avatarColors[index];
 };
 
@@ -27,15 +27,11 @@ const NewPostCard = ({ post }) => {
             <Box maxW='md' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                 <Flex padding='4' align='center' justify='space-between'>
                     <Flex flex='1' gap='4' alignItems='center'>
-
-                        {/* //commenting this out so i can try custom bg color vv */}
-                        {/* <Avatar name={post.username} src={post.photo_url || 'defaultAvatarUrl'} /> */}
                         <Avatar
                             name={post.username}
-                            src={post.photo_url || 'defaultAvatarUrl'}
-                            bg={getAvatarColor(post.username)} // Assign color based on username
+                            src={post.user_picture || 'defaultAvatarUrl'}
+                            bg={getAvatarColor(post?.username)}
                         />
-
                         <Box>
                             <Heading size='sm' >{post.username}</Heading>
                             <Text fontSize='sm' color="red.500" fontStyle="italic" >{post.category}</Text>
@@ -54,7 +50,7 @@ const NewPostCard = ({ post }) => {
                 <Link to={`/posts/${post.id}`} key={post.id}>
                     {/* //temp photo so i can see  */}
                     <Image
-                        src={post.image || '../weAreOne.jpg'}
+                        src={post.picture || '../weAreOne.jpg'}
                         alt='Post image'
                         fit='cover'
                     />

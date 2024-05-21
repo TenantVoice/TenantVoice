@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllPosts } from "../adapters/post-adapter";
 import FlyoutNav from "../components/FlyoutNav";
 import { useParams } from "react-router-dom";
-
+import { Box, Image, Text } from '@chakra-ui/react'
 
 export default function HomePage() {
     const [newPosts, setPosts] = useState([]);
@@ -11,16 +11,25 @@ export default function HomePage() {
         getAllPosts().then(setPosts);
     }, []);
 
-    const posts = newPosts?.filter((post) => post.id === parseInt(id));
-    console.log(posts);
+    const post = newPosts?.find((post) => post.id === parseInt(id));
+    console.log(post);
+
     return <>
         <FlyoutNav />
         <div className="flex pl-10 mt-[60px]">
-            <ul>
-                <li>
-                    {posts.username}
-                </li>
-            </ul>
+            <div>
+                <>
+                    <Image
+                        src={post?.picture || '/weAreOne.jpg'}
+                        alt='Post image'
+                        fit='cover'
+                    />
+                    <Box p='4'>
+                        <Text mb='4'>{post?.description}</Text>
+                    </Box>
+                </>
+
+            </div>
         </div>
     </>;
 }
