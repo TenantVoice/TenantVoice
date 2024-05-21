@@ -31,18 +31,18 @@ header {
   color: #FFF;
 }
 
-nav ul {
+/* nav ul {
   display: flex;
   gap: 1rem;
   padding: 0;
   margin: 0;
   list-style: none;
-}
+} */
 
-nav a {
+/* nav a {
   display: block;
   color: #FFF;
-}
+} */
 
 form {
   padding: 1rem;
@@ -52,8 +52,9 @@ form {
 }
 
 /* automatically added by NavLink component */
-.active {
-  /* color: #EEBC32; */
+/* .active {
+  color: #EEBC32; 
   font-weight: bold;
   font-style: italic;
 }
+*/

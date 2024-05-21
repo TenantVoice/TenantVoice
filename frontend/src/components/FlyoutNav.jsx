@@ -17,17 +17,17 @@ export default function FlyoutNav({ setCurrentUser }) {
     const isLandingPage = location.pathname === '/';
 
     return (
-        <nav className={`fixed top-0 z-50 w-full px-4 lg:px-8 text-white transition-all duration-300 ease-out ${isLandingPage ? (scrolled ? "bg-neutral-800 py-3 shadow-lg" : "bg-transparent py-5 shadow-none") : "bg-neutral-800 py-3 shadow-lg"
+        <nav className={`fixed top-0 z-50 w-full px-4 lg:px-8 text-white transition-all duration-300 ease-out ${isLandingPage ? (scrolled ? "bg-oxford py-3 shadow-lg" : "bg-transparent py-5 shadow-none") : "bg-oxford py-3 shadow-lg"
             }`}>
             <div className="container mx-auto flex items-center justify-between">
                 <NavLink to='/' className="font-bold text-lg text-lightBlue">
                     TenantVoice
                 </NavLink>
                 <ul className="flex items-center space-x-4">
-                    <li><NavLink to='/home' className="hover:text-radish">Home</NavLink></li>
+                    <li><NavLink to='/home' className=" transition-colors hover: rounded border-indigo-600 hover:bg-indigo-600 text-white">Home</NavLink></li>
                     {currentUser ? (
                         <>
-                            <li><NavLink to='/users' className="hover:text-radish" end>Users</NavLink></li>
+                            <li><NavLink to='/users' className="htransition-colors hover: rounded border-indigo-600 hover:bg-indigo-600 text-whit" end>Users</NavLink></li>
                             <li><UsersLogo currentUser={currentUser} setCurrentUser={setCurrentUser} /></li>
                         </>
                     ) : (
