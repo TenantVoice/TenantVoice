@@ -2,7 +2,6 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 
-const cloudinary = require('cloudinary').v2;
 const knex = require('knex');
 
 const handleCookieSessions = require('./middleware/handleCookieSessions');
