@@ -24,10 +24,18 @@ export default function HomePage() {
       <div className="pr-10">
         <ReportForm setPosts={setPosts} />
       </div>
-      <ChakraProvider>
-        <NewPostCard posts={posts} />
-      </ChakraProvider>
-    </div>
+      <ul className="posts-list">
+        {
+          posts.map((post) => {
+            return <li key={post.id}>
+              <ChakraProvider>
+                <NewPostCard post={post} />
+              </ChakraProvider>
+            </li>
+          })
+        }
+      </ul>
+    </div >
   </>;
 }
 
