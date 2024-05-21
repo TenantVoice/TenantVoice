@@ -10,5 +10,4 @@ class Upvote {
 
 }
 
-
 module.export = Upvote;
