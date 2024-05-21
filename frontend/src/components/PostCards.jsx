@@ -23,21 +23,25 @@ const NewPostCard = ({ post }) => {
 
     return (
 
-        <Grid templateColumns="repeat(1, 1fr)" gap={6} justifyContent="center" width="50%" marginLeft="25%" marginTop="16px" marginRight="auto">
+        <Grid templateColumns="repeat(1, 1fr)" gap={6} justifyContent="center" width="100%" marginLeft="25%" marginTop="16px" marginRight="auto">
             <Box maxW='md' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                 <Flex padding='4' align='center' justify='space-between'>
                     <Flex flex='1' gap='4' alignItems='center'>
 
                         {/* //commenting this out so i can try custom bg color vv */}
                         {/* <Avatar name={post.username} src={post.photo_url || 'defaultAvatarUrl'} /> */}
-                        <Avatar
-                            name={post.username}
-                            src={post.photo_url || 'defaultAvatarUrl'}
-                            bg={getAvatarColor(post.username)} // Assign color based on username
-                        />
+                        <Link to={`/users/${post.user_id}`}>
+                            <Avatar
+                                name={post.username}
+                                src={post.photo_url || 'defaultAvatarUrl'}
+                                bg={getAvatarColor(post.username)} // Assign color based on username
+                            />
+                        </Link>
 
                         <Box>
-                            <Heading size='sm' >{post.username}</Heading>
+                            <Link to={`/users/${post.user_id}`}>
+                                <Heading size='sm' >{post.username}</Heading>
+                            </Link>
                             <Text fontSize='sm' color="red.500" fontStyle="italic" >{post.category}</Text>
                         </Box>
                         <Box>

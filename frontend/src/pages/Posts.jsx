@@ -18,20 +18,22 @@ export default function HomePage() {
 
     <FlyoutNav />
     <div className="flex pl-10 mt-[60px]">
-      <div className="pr-10">
+      <div className="pr-10 z-1000">
         <ReportForm setPosts={setPosts} />
       </div>
-      <ul className="posts-list">
-        {
-          posts?.map((post) => {
-            return <li key={post.id}>
-              <ChakraProvider>
-                <NewPostCard post={post} />
-              </ChakraProvider>
-            </li>
-          })
-        }
-      </ul>
+      <div className="absolute top-[50%] left-[50%]">
+        <ul className="posts-list">
+          {
+            posts?.map((post) => {
+              return <li key={post.id}>
+                <ChakraProvider>
+                  <NewPostCard post={post} />
+                </ChakraProvider>
+              </li>
+            })
+          }
+        </ul>
+      </div>
     </div >
   </>;
 }
