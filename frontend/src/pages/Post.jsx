@@ -30,7 +30,7 @@ export default function PostPage({ posts }) {
                 <Box key={post[0]?.id} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                     <Flex padding='4' align='center' justify='space-between'>
                         <Flex flex='1' gap='4' alignItems='center'>
-                            <Avatar name={posts[?.username} src={posts[0]?.picture || 'defaultAvatarUrl'} />
+                            <Avatar name={post[0]?.username} src={post[0]?.user_picture || 'defaultAvatarUrl'} />
                             <Box>
                                 <Heading size='sm'>{post[0]?.username}</Heading>
                                 <Text fontSize='sm'>{post[0]?.problem_duration}</Text>
