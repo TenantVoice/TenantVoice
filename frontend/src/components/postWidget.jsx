@@ -26,7 +26,6 @@ const PostWidget = ({ onUpload }) => {
             className="flex flex-col items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
             <span h className="block font-medium bg-slate-900 text-white py-2 px-2 rounded-full">Upload picture</span>
-
         </button>
     );
 }

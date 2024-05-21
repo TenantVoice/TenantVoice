@@ -49,11 +49,4 @@ class Post {
   }
 }
 
-const main = async () => {
-  const mo = new Post("mold", "mold in the sink", 'default-placeholder', 29, 2)
-  const post = await Post.getPostById(29)
-  console.log(post)
-}
-
-main();
 module.exports = Post;
