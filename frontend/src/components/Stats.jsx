@@ -55,7 +55,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
 
     return (
         <div className="flex w-72 flex-col items-center py-8 sm:py-0">
-            <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl">
+            <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl text-radish">
                 <span ref={ref}></span>
                 {suffix}
             </p>

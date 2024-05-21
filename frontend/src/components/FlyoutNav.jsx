@@ -20,20 +20,20 @@ export default function FlyoutNav({ setCurrentUser }) {
         <nav className={`fixed top-0 z-50 w-full px-4 lg:px-8 text-white transition-all duration-300 ease-out ${isLandingPage ? (scrolled ? "bg-neutral-800 py-3 shadow-lg" : "bg-transparent py-5 shadow-none") : "bg-neutral-800 py-3 shadow-lg"
             }`}>
             <div className="container mx-auto flex items-center justify-between">
-                <NavLink to='/' className="font-bold text-lg">
+                <NavLink to='/' className="font-bold text-lg text-lightBlue">
                     TenantVoice
                 </NavLink>
                 <ul className="flex items-center space-x-4">
-                    <li><NavLink to='/home' className="hover:text-gray-300">Home</NavLink></li>
+                    <li><NavLink to='/home' className="hover:text-radish">Home</NavLink></li>
                     {currentUser ? (
                         <>
-                            <li><NavLink to='/users' className="hover:text-gray-300" end>Users</NavLink></li>
+                            <li><NavLink to='/users' className="hover:text-radish" end>Users</NavLink></li>
                             <li><UsersLogo currentUser={currentUser} setCurrentUser={setCurrentUser} /></li>
                         </>
                     ) : (
                         <>
-                            <li><NavLink to='/login' className="hover:text-gray-300">Login</NavLink></li>
-                            <li><NavLink to='/sign-up' className="hover:text-gray-300">Sign Up</NavLink></li>
+                            <li><NavLink to='/login' className="hover:text-radish">Login</NavLink></li>
+                            <li><NavLink to='/sign-up' className="hover:text-radish">Sign Up</NavLink></li>
                         </>
                     )}
                 </ul>
