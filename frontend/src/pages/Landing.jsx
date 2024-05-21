@@ -40,8 +40,23 @@ export default function Example() {
 
 
                 <div className="cards-container" style={{ marginTop: '20px' }}>
-                    {/* <ColorChangeCards /> */}
-                    {/* <Cards
+
+                    <div className="missionStatement">
+
+                        <h2> Who we are</h2>
+                        <p> Tenant voice does xyz</p>
+
+                    </div>
+                    < CardCarousel />
+                </div>
+
+            </div>
+        </>
+    );
+};
+
+{/* <ColorChangeCards /> */ }
+{/* <Cards
                         heading="Our Mission"
                         description="TenantVoice aims to enhance public housing by providing a platform for tenants to report issues and collaborate with neighbors, promoting accountability and empowering advocacy."
                         imgSrc="../weAreOne.jpg"
@@ -64,10 +79,3 @@ export default function Example() {
                         imgSrc="../protester.jpg"
 
                     /> */}
-                    < CardCarousel />
-                </div>
-
-            </div>
-        </>
-    );
-}

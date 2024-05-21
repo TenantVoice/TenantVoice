@@ -21,7 +21,7 @@ const UsersLogo = () => {
             <div className="absolute right-0 hidden group-hover:flex flex-col bg-white rounded-lg shadow-lg">
                 <div className="px-4 py-3 text-gray-900">
                     <div>{currentUser.name}</div>
-                    <div className="font-medium truncate">{currentUser.email}</div>
+                    <div className="font-medium truncate">{currentUser.username}</div>
                 </div>
                 <ul className="py-2 text-gray-900 flex-col">
                     <li>
