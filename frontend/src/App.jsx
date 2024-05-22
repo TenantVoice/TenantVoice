@@ -1,19 +1,19 @@
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Posts';
-import Landing from './pages/Landing';
-import NotFoundPage from './pages/NotFound';
+import Home from './pages/Posts/Posts';
+import Landing from './pages/Landingpage';
+import NotFoundPage from './pages/NotFoundPage';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UsersPage from './pages/Users';
-import UserPage from './pages/User';
+import UsersPage from './pages/Users/Users';
+import UserPage from './pages/Users/User';
 import FlyoutNav from './components/FlyoutNav';
-import SlideInAuth from './pages/NewSignUp';
-import NewLogin from './pages/NewLogin';
+import SlideInAuth from './pages/Signup';
+import NewLogin from './pages/login';
 import Dashboard from './pages/Dashboard';
 import { ChakraProvider } from '@chakra-ui/react';
-import PostPage from './pages/Post';
-import DataVisuals from './pages/DataVisuals';
+import PostPage from './pages/Posts/Post';
+import DataVisuals from './pages/DataVisualization';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);

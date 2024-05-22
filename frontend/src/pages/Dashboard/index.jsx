@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react";
-import { getAllPosts } from "../adapters/post-adapter";
-import PostCard from "../components/PostCards";
-import CurrentUserContext from "../contexts/current-user-context";
-import FlyoutNav from "../components/FlyoutNav";
+import { getAllPosts } from "../../adapters/post-adapter";
+import PostCard from "../../components/PostCards";
+import CurrentUserContext from "../../contexts/current-user-context";
+import FlyoutNav from "../../components/FlyoutNav";
 
 
 const Dashboard = () => {

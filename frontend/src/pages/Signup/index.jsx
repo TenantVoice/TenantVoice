@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
 import { useContext, useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
-import CurrentUserContext from "../contexts/current-user-context";
-import { createUser } from "../adapters/user-adapter";
-import FlyoutNav from "../components/FlyoutNav";
-import UploadWidget from "../components/UploadWidget";
+import CurrentUserContext from "../../contexts/current-user-context";
+import { createUser } from "../../adapters/user-adapter";
+import FlyoutNav from "../../components/FlyoutNav";
+import UploadWidget from "../../components/UploadWidget";
 
 export default function SlideInAuth() {
     return (

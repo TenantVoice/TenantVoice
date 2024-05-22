@@ -6,7 +6,6 @@ import { useState } from 'react';
 import LikesButton from "./LikesButton";
 import { getUser } from "../adapters/user-adapter";
 
-// for specific avatar colors 
 const avatarColors = ["blue.200", "green.200", "orange.200", "cyan.200", "teal.200"];
 
 function getAvatarColor(username) {
@@ -27,14 +26,11 @@ const NewPostCard = ({ post }) => {
             <Box maxW='md' borderWidth='1px' borderRadius='lg' overflow='hidden' m="4">
                 <Flex padding='4' align='center' justify='space-between'>
                     <Flex flex='1' gap='4' alignItems='center'>
-
-                        {/* //commenting this out so i can try custom bg color vv */}
-                        {/* <Avatar name={post.username} src={post.photo_url || 'defaultAvatarUrl'} /> */}
                         <Link to={`/users/${post.user_id}`}>
                             <Avatar
                                 name={post.username}
                                 src={post.photo_url || 'defaultAvatarUrl'}
-                                bg={getAvatarColor(post.username)} // Assign color based on username
+                                bg={getAvatarColor(post.username)}
                             />
                         </Link>
 

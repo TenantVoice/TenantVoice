@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { logUserIn } from "../adapters/auth-adapter";
-import CurrentUserContext from "../contexts/current-user-context";
+import { logUserIn } from "../../adapters/auth-adapter";
+import CurrentUserContext from "../../contexts/current-user-context";
 import { motion } from "framer-motion";
-import FlyoutNav from "../components/FlyoutNav";
+import FlyoutNav from "../../components/FlyoutNav";
 
 const primaryVariants = {
     initial: { y: 25, opacity: 0 },

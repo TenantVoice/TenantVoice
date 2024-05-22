@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getAllPosts } from "../adapters/post-adapter";
-import FlyoutNav from "../components/FlyoutNav";
-import ReportForm from "../components/ReportForm"
+import { getAllPosts } from "../../adapters/post-adapter";
+import FlyoutNav from "../../components/FlyoutNav";
+import ReportForm from "../../components/ReportForm"
 import { ChakraProvider } from '@chakra-ui/react'
-import NewPostCard from "../components/PostCards";
+import NewPostCard from "../../components/PostCards";
 
 
-export default function HomePage() {
+export default function PostPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

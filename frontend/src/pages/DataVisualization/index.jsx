@@ -1,6 +1,6 @@
-import { ThePieChart, BarChartComponent } from "../components/Charts";
-import FlyoutNav from "../components/FlyoutNav";
-import { CountUpStats } from "../components/Stats";
+import { ThePieChart, BarChartComponent } from "../../components/Charts";
+import FlyoutNav from "../../components/FlyoutNav";
+import { CountUpStats } from "../../components/Stats";
 import React, { useEffect, useRef } from "react";
 
 //bestie this is the page!!!! 

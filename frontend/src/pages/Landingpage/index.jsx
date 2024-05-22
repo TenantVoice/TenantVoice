@@ -1,9 +1,9 @@
 import React from "react";
-import '../landing.css';
-import FlyoutNav from "../components/FlyoutNav";
-import { CountUpStats } from "../components/Stats";
-import CardCarousel from "../components/Carousel";
-import WaterDropHero from "../components/HeroText";
+// import '../landing.css';
+import FlyoutNav from "../../components/FlyoutNav";
+import { CountUpStats } from "../../components/Stats";
+import CardCarousel from "../../components/Carousel";
+import WaterDropHero from "../../components/HeroText";
 
 export default function Example() {
     return (

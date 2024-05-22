@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import CurrentUserContext from "../contexts/current-user-context";
-import { getUser } from "../adapters/user-adapter";
-import { logUserOut } from "../adapters/auth-adapter";
-import UpdateUsernameForm from "../components/UpdateUsernameForm";
-import SiteHeadingAndNav from "../components/SiteHeadingAndNav";
-import FlyoutNav from "../components/FlyoutNav";
+import CurrentUserContext from "../../contexts/current-user-context";
+import { getUser } from "../../adapters/user-adapter";
+import { logUserOut } from "../../adapters/auth-adapter";
+import UpdateUsernameForm from "../../components/UpdateUsernameForm";
+import SiteHeadingAndNav from "../../components/SiteHeadingAndNav";
+import FlyoutNav from "../../components/FlyoutNav";
 
 export default function UserPage() {
   const navigate = useNavigate();
