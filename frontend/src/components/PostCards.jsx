@@ -42,6 +42,7 @@ const NewPostCard = ({ post }) => {
                         </Box>
                         <Box>
                             <Heading size='sm' paddingLeft={"3.75rem"} paddingBottom={"0rem"}>Status: Ongoing</Heading>
+                            <Text fontSize='sm' color="black.500" fontStyle="italic" paddingLeft={"3.75rem"}>Location, NY</Text>
                         </Box>
                     </Flex>
                     <IconButton
