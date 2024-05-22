@@ -16,7 +16,7 @@ export const CountUpStats = () => {
                     // first stat from NYCHA 2023 fact sheet
                     num={528}
                     suffix="K+"
-                    subheading=" New Yorkers call NYCHA home as of 2023"
+                    subheading=" New Yorkers call NYCHA home"
                 />
                 <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
                 <Stat

@@ -134,7 +134,7 @@ const items = [
     },
     {
         id: 3,
-        url: "/imgs/computer/monitor.png",
+        url: "../protester.jpg",
         category: "See Current Compaints",
         title: "Across NYCHA",
         description:

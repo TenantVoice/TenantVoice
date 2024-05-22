@@ -1,7 +1,8 @@
 // NewPostCard.js
 import { Link } from "react-router-dom";
-import { Box, Flex, Avatar, Text, IconButton, Image, Grid, Heading } from '@chakra-ui/react';
+import { Box, Flex, Avatar, Text, IconButton, Image, Grid, Heading, Button, CardFooter, Card } from '@chakra-ui/react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { BiShare, BiChat, BiLike } from 'react-icons/bi';
 import { useState } from 'react';
 import LikesButton from "./LikesButton";
 import { getUser } from "../adapters/user-adapter";
@@ -14,6 +15,16 @@ const NewPostCard = ({ post }) => {
 
     const handleClick = () => {
         setLikes((currentLikes) => currentLikes + 1)
+    }
+
+    const datetimeString = post.created_at;
+    const pattern = /^[^T]+/;
+
+    const match = datetimeString.match(pattern);
+    let date = ''
+    if (match) {
+        date = match[0];
+        console.log(date);  // Output: 2024-05-15
     }
 
     return (
@@ -58,9 +69,32 @@ const NewPostCard = ({ post }) => {
                         <Text mb='4'>{post.description}</Text>
                     </Box>
                 </Link>
-                <LikesButton />
+                <Box>
+                    <Text>{date}</Text>
+                </Box>
+                <CardFooter
+                    justify='space-between'
+                    flexWrap='wrap'
+                    sx={{
+                        '& > button': {
+                            minW: '136px',
+                        },
+                    }}
+                >
+                    <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+                        Like
+                    </Button>
+
+                    <Link to={`/posts/${post.id}`} key={post.id}>
+                        <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
+                            Comment
+                        </Button>
+                    </Link>
+
+                </CardFooter>
             </Box>
         </Grid>
+        </Card >
     );
 };
 
