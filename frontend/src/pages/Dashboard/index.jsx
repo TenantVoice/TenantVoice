@@ -13,12 +13,12 @@ const Dashboard = () => {
         getAllPosts().then(setPosts);
     }, []);
 
-    const filteredPost = posts.filter((post) => post.user_id === currentUser.id);
-
+    // const filteredPost = posts?.find((post) => post.user_id === currentUser?.id);
+    console.log(posts)
     return (
         <div>
             <FlyoutNav />
-            <PostCard posts={filteredPost} />
+            <PostCard post={posts} />
         </div>
     )
 }

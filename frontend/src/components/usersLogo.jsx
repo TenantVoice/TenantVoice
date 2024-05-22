@@ -24,7 +24,7 @@ const UsersLogo = () => {
                 </div>
                 <ul className="py-2 text-gray-900 flex-col">
                     <li>
-                        <NavLink to={`/users/${currentUser.id}/dashboard`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Profile</NavLink>
+                        <NavLink to={`/users/${currentUser.id}/profile`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Profile</NavLink>
                     </li>
                     <li>
                         <NavLink to={`/users/${currentUser.id}`} className="block px-4 py-2 hover:bg-gray-100 text-gray-900 ">Settings</NavLink>

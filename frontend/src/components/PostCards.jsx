@@ -8,10 +8,6 @@ import { getUser } from "../adapters/user-adapter";
 
 const avatarColors = ["blue.200", "green.200", "orange.200", "cyan.200", "teal.200"];
 
-function getAvatarColor(username) {
-    const index = Math.abs(username?.charCodeAt(0) + username.length) % avatarColors.length;
-    return avatarColors[index];
-};
 
 const NewPostCard = ({ post }) => {
     const [likes, setLikes] = useState(0)
@@ -30,7 +26,6 @@ const NewPostCard = ({ post }) => {
                             <Avatar
                                 name={post.username}
                                 src={post.photo_url || 'defaultAvatarUrl'}
-                                bg={getAvatarColor(post.username)}
                             />
                         </Link>
 

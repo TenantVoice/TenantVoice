@@ -31,7 +31,7 @@ export default function App() {
           <Route path='/login' element={<NewLogin />} />
           <Route path='/sign-up' element={<SlideInAuth />} />
           <Route path='/users' element={<UsersPage />} />
-          <Route path='/users/:id/dashboard' element={<Dashboard />} />
+          <Route path='/users/:id/profile' element={<Dashboard />} />
           <Route path='/users/:id' element={<UserPage />} />
           <Route path='*' element={<NotFoundPage />} />
           {/* //adding data route */}
