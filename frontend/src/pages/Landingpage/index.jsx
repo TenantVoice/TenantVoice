@@ -4,12 +4,13 @@ import { CountUpStats } from "../../components/Stats";
 import CardCarousel from "../../components/Carousel";
 import WaterDropHero from "../../components/HeroText";
 
+
 export default function Example() {
     return (
         <>
             <FlyoutNav />
             <WaterDropHero />
-            <CountUpStats />
+            {/* <CountUpStats /> */}
             <div className="content-container" style={{ padding: '20px' }}>
                 <div className="cards-container" style={{ marginTop: '20px' }}>
                     <div className="bg-indigo">

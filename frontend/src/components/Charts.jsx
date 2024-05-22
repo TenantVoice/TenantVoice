@@ -4,45 +4,27 @@ import React, { useEffect, useState } from 'react';
 import {
     PieChart, Pie, Cell,
     BarChart, Bar, XAxis, YAxis, CartesianGrid,
-    Tooltip, Legend, ResponsiveContainer,
+    Tooltip, Legend, ResponsiveContainer, LineChart,
+    Line,
 } from 'recharts';
 
+// import { getAllPosts } from '../adapters/post-adapter';
+
 const salesData = [
-    {
-        name: 'Jan',
-        revenue: 4000,
-        profit: 2400,
-    },
-    {
-        name: 'Feb',
-        revenue: 3000,
-        profit: 1398,
-    },
-    {
-        name: 'Mar',
-        revenue: 9800,
-        profit: 2000,
-    },
-    {
-        name: 'Apr',
-        revenue: 3908,
-        profit: 2780,
-    },
-    {
-        name: 'May',
-        revenue: 4800,
-        profit: 1890,
-    },
-    {
-        name: 'Jun',
-        revenue: 3800,
-        profit: 2390,
-    },
+
+    { "month": "Jan", "created": 211800, "closed": 214500 },
+    { "month": "Feb", "created": 241500, "closed": 201000 },
+    { "month": "Mar", "created": 208300, "closed": 203300 },
+    { "month": "Apr", "created": 240100, "closed": 205500 }
+
 ];
+
+
+
 
 const BarChartComponent = () => {
     return (
-        <div style={{ width: '100%', height: '400px' }}> {/* Ensure some default sizing */}
+        <div style={{ width: '100%', height: '400px' }}>
             <ResponsiveContainer>
                 <BarChart
                     data={salesData}
@@ -51,12 +33,12 @@ const BarChartComponent = () => {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} />
                     <Legend />
-                    <Bar dataKey="revenue" fill="#2563eb" />
-                    <Bar dataKey="profit" fill="#8b5cf6" />
+                    <Bar dataKey="created" fill="#2563eb" />
+                    <Bar dataKey="closed" fill="#8b5cf6" />
                 </BarChart>
             </ResponsiveContainer>
         </div>
@@ -93,17 +75,20 @@ const ThePieChart = () => {
     // Dummy data to simulate the expected structure
     const fetchData = () => {
         return [
-            { name: "Manhattan", value: 400 },
-            { name: "Brooklyn", value: 300 },
-            { name: "Queens", value: 300 },
-            { name: "Bronx", value: 200 },
-            { name: "Staten Island", value: 100 },
+            { name: "Manhattan", value: 99777 },
+            { name: "Brooklyn", value: 102907 },
+            { name: "Queens", value: 30452 },
+            { name: "Bronx", value: 87903 },
+            { name: "Staten Island", value: 9079 },
         ];
+
+
     };
 
     useEffect(() => {
         setData(fetchData());
-        // Your fetch request will go here
+        // fetch go here
+
     }, []);
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
@@ -117,7 +102,7 @@ const ThePieChart = () => {
                     cy="50%"
                     labelLine={false}
                     label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    outerRadius={150}
+                    outerRadius={100}
                     fill="#8884d8"
                     dataKey="value"
                 >
@@ -125,11 +110,52 @@ const ThePieChart = () => {
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                 </Pie>
-                <Tooltip />
+                {/* <Tooltip /> */}
                 <Legend />
             </PieChart>
         </ResponsiveContainer>
     );
 };
 
-export { ThePieChart, BarChartComponent };
+const serviceLevelPerformance = () => {
+    return [
+        { "month": "Apr-2023", "Average Days": 358 },
+        { "month": "May-2023", "Average Days": 366 },
+        { "month": "Jun-2023", "Average Days": 352 },
+        { "month": "Jul-2023", "Average Days": 356 },
+        { "month": "Aug-2023", "Average Days": 358 },
+        { "month": "Sep-2023", "Average Days": 366 },
+        { "month": "Oct-2023", "Average Days": 359 },
+        { "month": "Nov-2023", "Average Days": 366 },
+        { "month": "Dec-2023", "Average Days": 378 },
+        { "month": "Jan-2024", "Average Days": 370 },
+        { "month": "Feb-2024", "Average Days": 379 },
+        { "month": "Mar-2024", "Average Days": 370 },
+        { "month": "Apr-2024", "Average Days": 371 }
+    ];
+};
+
+
+const LineChartComponent = () => {
+    return (
+        <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+                data={serviceLevelPerformance()}  // Call the function to get the data
+                margin={{ right: 30 }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                {/* <Tooltip content={<CustomTooltip />} /> */}
+                <Legend />
+                <Line type="monotone" dataKey="Average Days" stroke="#3b82f6" />
+            </LineChart>
+        </ResponsiveContainer>
+    );
+};
+
+
+export default LineChartComponent;
+
+
+export { ThePieChart, BarChartComponent, LineChartComponent };
