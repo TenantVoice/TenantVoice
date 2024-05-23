@@ -54,7 +54,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
                     id="category"
                     value={category}
                     onChange={handleChange}
-                    className="w-full rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    className=" text-black w-full rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                 >
                     <option value="infestation">Infestation</option>
                     <option value="heating">Heating Issue</option>
@@ -73,7 +73,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
                     name="problem_duration"
                     value={problem_duration}
                     onChange={handleChange}
-                    className="w-full rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    className="w-full text-black rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                 />
             </div>
             <div className="mb-4">
@@ -86,7 +86,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
                     name="description"
                     value={description}
                     onChange={handleChange}
-                    className="w-full h-32 rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                    className=" text-black w-full h-32 rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                     placeholder="Describe your issue in detail."
                 ></textarea>
             </div>
