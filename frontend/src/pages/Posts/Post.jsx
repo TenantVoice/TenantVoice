@@ -87,14 +87,14 @@ export default function HomePage() {
                         {comments?.map((comment, index) => (
                             <Box key={index} bg="gray.600" p="4" borderRadius="md" w="full">
                                 <HStack spacing="4" mb="2">
-                                    <Link to={`/users/${post.user_id}`}>
+                                    <Link to={`/users/${post?.user_id}`}>
                                         <Avatar
                                             name={post?.username}
-                                            src={post.user_picture || 'defaultAvatarUrl'}
+                                            src={post?.user_picture || 'defaultAvatarUrl'}
                                         />
                                     </Link>
-                                    <Link to={`/users/${post.user_id}`}>
-                                        <Text fontWeight="bold">{post.username}</Text>
+                                    <Link to={`/users/${post?.user_id}`}>
+                                        <Text fontWeight="bold">{post?.username}</Text>
                                     </Link>
                                 </HStack>
                                 <Text>{comment.comment}</Text>
