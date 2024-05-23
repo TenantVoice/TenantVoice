@@ -7,6 +7,7 @@ const postRouter = express.Router();
 postRouter.post('/', checkAuthentication, postControllers.addPost);
 postRouter.post('/:id/comments', commentControllers.addComment)
 
+postRouter.get('/:id/comments', commentControllers.getAllCommentsByPostId)
 postRouter.get('/', postControllers.getAllPosts);
 postRouter.get('/:id', postControllers.getPostById);
 postRouter.patch('/:id', checkAuthentication, postControllers.updateDescription);

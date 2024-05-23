@@ -8,3 +8,10 @@ exports.addComment = async (req, res) => {
 
     res.send(newComment);
 }
+
+exports.getAllCommentsByPostId = async (req, res) => {
+    const { id } = req.params;
+    const comments = await Comment.getAllCommentByPostId(id)
+
+    res.send(comments);
+}
