@@ -33,9 +33,10 @@ const NewPostCard = ({ post }) => {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
                         <Link to={`/users/${post.user_id}`}>
-                            <div className="avatar" style={{ backgroundColor: getAvatarColor(post.username), borderRadius: "50%", width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
-                                <Avatar src={post.user_picture || 'defaultAvatarUrl'} />
-                            </div>
+                            <Avatar
+                                name={post?.username}
+                                src={post?.user_picture || 'defaultAvatarUrl'}
+                            />
                         </Link>
                         <div>
                             <Link to={`/users/${post.user_id}`}>
