@@ -45,7 +45,7 @@ const CardCarousel = () => {
                 {/* CARDS */}
                 <div className="mx-auto max-w-6xl">
                     <p className="mb-4 text-2xl font-semibold">
-                        Who we are, <span className="text-slate-500">and how we empower you.</span>
+                        Who we are <span className="text-slate-500">and how we empower you.</span>
                     </p>
                     <motion.div
                         animate={{
@@ -119,26 +119,26 @@ const items = [
     {
         id: 1,
         url: "../ambulance.jpg",
-        category: "The Problem",
-        title: "The Problem",
+        category: "Make a report",
+        title: "Advocate",
         description:
-            "Public housing residents often endure unresolved maintenance issues that degrade living conditions and pose health risks. Without a platform to unite and voice their concerns, tenants struggle to communicate and take collective action to demand improvements.",
+            "Our reporting system generates a transparent paper trail for its tenants. Submit a report now, alongside your fellow tenants, to track the maintenance issues in your complex and help hold NYCHA accountable."
     },
     {
         id: 2,
         url: "../weAreOne.jpg",
-        category: "Our Mission",
-        title: "Our Mission",
+        category: "Connect with other tenants",
+        title: "Engage",
         description:
-            "Public housing residents often endure unresolved maintenance issues that degrade living conditions and pose health risks. Without a platform to unite and voice their concerns, tenants struggle to communicate and take collective action to demand improvements.",
+            "Our application empowers the community by allowing tenants to share a platform. By making posts collectively, our users will be able to see how common their problems across all complexes."
     },
     {
         id: 3,
         url: "../protester.jpg",
-        category: "See Current Compaints",
-        title: "Across NYCHA",
+        category: "View NYCHA Data",
+        title: "View NYCHA Data",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+            "Our charts make it possible for users to have additional context to the problems they face. Depending on the type of report being made, you will be able to track the problem from borough to borough.",
     },
     // {
     //     id: 4,

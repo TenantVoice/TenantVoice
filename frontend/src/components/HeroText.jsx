@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const WaterDropHero = () => {
     return (
@@ -21,14 +22,15 @@ const WaterDropHero = () => {
                     </Reveal>
                     <Reveal>
                         <p className="pointer-events-auto max-w-xl text-sm text-slate-300 md:text-base">
-                            TenantVoice is a dedicated platform for NYCHA residents to publicly report their housing problem issues. We hope that by doing so, tenants have the ability to publicly call out their landlords and NYCHA,
+                            TenantVoice is a dedicated platform for NYCHA residents to publicly report their housing problems. We hope that by doing so, tenants have the ability to publicly call out their landlords and NYCHA, and connect to tenants facing similar problems.
                         </p>
                     </Reveal>
                     <Reveal>
-                        {/* //need to get the routing to sign up pg */}
-                        <button className="pointer-events-auto mt-4 rounded bg-electric px-4 py-2 font-medium text-slate-100 transition-all hover:bg-indigo-700 active:scale-95 md:mt-6">
-                            Get Started
-                        </button>
+                        <Link to={`/sign-up`}>
+                            <button className="pointer-events-auto mt-4 rounded bg-electric px-4 py-2 font-medium text-slate-100 transition-all hover:bg-indigo-700 active:scale-95 md:mt-6">
+                                Join Us Today
+                            </button>
+                        </Link>
                     </Reveal>
                 </div>
             </div>
