@@ -28,11 +28,7 @@ export default function HomePage() {
         getAllCommentByPostId(id).then(setComments)
     }, [id]);
 
-    const [commentData, setCommentData] = useState({
-        comment: '',
-        user_id: userId,
-        post_id: id
-    });
+    const [commentData, setCommentData] = useState('');
 
     const [errorText, setErrorText] = useState(null);
 
@@ -42,9 +38,14 @@ export default function HomePage() {
         event.preventDefault();
         setErrorText('');
 
-        if (!commentData.comment) return setErrorText("All fields required");
+        if (!commentData) return setErrorText("All fields required");
 
-        const [newComment, error] = await createComment(commentData);
+        console.log(commentData);
+
+
+        const [newComment, error] = await createComment({ comment: commentData, post_id: id, user_id: currentUser.id });
+        console.log(error);
+        console.log(newComment)
         if (error) return setErrorText(error.message);
         setComment(newComment);
         setComments(prev => [...prev, newComment]);
@@ -53,10 +54,7 @@ export default function HomePage() {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setCommentData(prevData => ({
-            ...prevData,
-            [name]: value
-        }));
+        setCommentData(value);
     };
 
     console.log(comments);
