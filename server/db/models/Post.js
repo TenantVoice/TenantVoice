@@ -11,9 +11,10 @@ class Post {
   }
 
   static async getAllPosts() {
-    const query = `SELECT posts.*, users.username, users.picture AS user_picture
+    const query = `SELECT posts.*, users.username, users.picture AS user_picture, locations.borough
     FROM posts
-    JOIN users ON posts.user_id = users.id`;
+    JOIN users ON posts.user_id = users.id
+    JOIN locations on posts.location_id = locations.id`;
     const { rows } = await knex.raw(query);
     return rows;
   }

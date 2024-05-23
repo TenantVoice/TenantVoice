@@ -1,4 +1,4 @@
-import { ThePieChart, BarChartComponent, LineChartComponent } from "../../components/Charts";
+import { ThePieChart, BarChartComponent, LineChartComponent, DayToSolveBarChart, UsersPieChart } from "../../components/Charts";
 import FlyoutNav from "../../components/FlyoutNav";
 import { CountUpStats } from "../../components/Stats";
 import React from "react";
@@ -31,16 +31,28 @@ export default function DataVisuals() {
             </div>
 
             <main className="bg-oxford flex min-h-screen flex-col items-center justify-center px-4 md:px-8 xl:px-10 py-44">
-                <div className="grid xl:grid-cols-3 lg:grid-cols-2 w-full gap-10 max-w-[1400px]">
-                    <GridItem title="Bar Chart">
-                        <BarChartComponent />
-                    </GridItem>
-                    <GridItem title="NYCHA Buildings in Each Borough">
-                        <ThePieChart />
-                    </GridItem>
-                    <GridItem title="Line Chart">
+                <div className="w-full gap-10 max-w-[1400px] pb-9">
+                    <GridItem title="#NYCHA buildings">
                         <LineChartComponent />
                     </GridItem>
+                </div>
+                <div className="w-full max-w-[2000px] flex flex-col items-center space-y-10">
+                    <div className="grid justify-items-center space-x-1 xl:grid-cols-3 lg:grid-cols-4 w-[2000px] gap-[1px] mx-auto">
+                        <GridItem title="Days to solve Issues">
+                            <DayToSolveBarChart />
+                        </GridItem>
+                        <GridItem title="Complaints unresolved by NYCHA housing">
+                            <BarChartComponent />
+                        </GridItem>
+                    </div>
+                    <div className="grid justify-items-center space-x-10 xl:grid-cols-3 lg:grid-cols-2 w-[2000px] gap-[1px] mx-auto">
+                        <GridItem title="Users Complaints Category">
+                            <ThePieChart />
+                        </GridItem>
+                        <GridItem title="Where users are located">
+                            <UsersPieChart />
+                        </GridItem>
+                    </div>
                 </div>
             </main>
         </>
