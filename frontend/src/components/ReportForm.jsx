@@ -42,7 +42,8 @@ export default function ReportForm({ setPosts }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="fixed left-4 mt-8 p-4 max-w-2xl mx-auto my-auto bg-white rounded shadow-md">
+        //removed mt-8 vv, mx-auto my-auto 
+        <form style={{ zIndex: 1000 }} onSubmit={handleSubmit} className="fixed left-4   p-4 max-w-2xl bg-white rounded shadow-md">
             <h1 className="text-center text-2xl font-semibold mb-4">Report a Problem</h1>
             <div className="mb-8">
                 <label htmlFor="category" className="mb-1 block text-sm font-medium">Complaint category:</label>
