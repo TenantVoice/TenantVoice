@@ -8,10 +8,11 @@ import "./postsPg.css"
 
 export default function PostPage() {
   const [posts, setPosts] = useState([]);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     getAllPosts().then(setPosts);
-  }, [])
+  }, [count])
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function PostPage() {
       <FlyoutNav />
       <div className="bg-oxford mt-[72px] w-full flex">
         <div className="w-full">
-          <ReportForm setPosts={setPosts} />
+          <ReportForm setPosts={setPosts} setCount={setCount} count={count} />
         </div>
         <div>
           <ul className="">

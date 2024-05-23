@@ -32,17 +32,17 @@ const NewPostCard = ({ post }) => {
         setLikes((currentLikes) => currentLikes + 1);
     };
 
-    const datetimeString = post.created_at;
-    const pattern = /^[^T]+/;
-    const match = datetimeString.match(pattern);
-    let date = '';
-    if (match) {
-        date = match[0];
-        console.log(date);  // Output: 2024-05-15
-    }
+    // const datetimeString = post.created_at;
+    // const pattern = /^[^T]+/;
+    // const match = datetimeString.match(pattern);
+    // let date = '';
+    // if (match) {
+    //     date = match[0];
+    //     console.log(date);  // Output: 2024-05-15
+    // }
 
     return (
-        <Card bg="#001D4A">
+        <Card bg="#001D4A" maxW="70rem">
             <Box borderWidth='1px' borderRadius='lg' overflow='hidden' color={"white"} borderColor="#4C6085">
                 <Grid templateColumns="repeat(1, 1fr)" gap={6} justifyContent="center" width="100%" p="4" >
                     <Flex padding='4' align='center' justify='space-between'>

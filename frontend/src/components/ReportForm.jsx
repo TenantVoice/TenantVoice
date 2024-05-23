@@ -4,7 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
 import PostWidget from "./postWidget";
 
-export default function ReportForm({ setPosts }) {
+export default function ReportForm({ setPosts, setCount, count }) {
     const { currentUser } = useContext(CurrentUserContext);
     const [errorText, setErrorText] = useState('');
     const [category, setCategory] = useState('Infestation');
@@ -22,6 +22,7 @@ export default function ReportForm({ setPosts }) {
             setErrorText(error.message);
             return;
         }
+        setCount((count) => count + 1);
         setPosts(prevPosts => [newPost, ...prevPosts]);
         setDescription('');
         setProblem_duration('');
