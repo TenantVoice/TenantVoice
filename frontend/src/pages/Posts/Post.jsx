@@ -68,13 +68,13 @@ export default function HomePage() {
     return (
         <div>
             <FlyoutNav />
-            <div className="flex justify-center mt-16">
-                <div className="w-full max-w-4xl p-4 bg-white rounded-lg shadow-md">
+            <div className="flex justify-center mt-16 ">
+                <div className="w-full max-w-4xl pt-4 rounded-lg shadow-md">
                     <div className="flex items-center mb-4">
                         <Avatar
                             name={post?.username}
                             src={post?.user_picture || 'defaultAvatarUrl'}
-                            className="mr-4"
+                            className="m-4"
                         />
                         <Text className="text-lg font-semibold">{post?.username}</Text>
                     </div>
@@ -100,7 +100,7 @@ export default function HomePage() {
                                     type="text"
                                     id="comment"
                                     name="comment" // Ensure the input has a name attribute to be captured by handleChange
-                                    className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full  p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     placeholder="Write your comment here..."
                                     onChange={handleChange}
                                 />

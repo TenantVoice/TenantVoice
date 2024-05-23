@@ -4,37 +4,34 @@ import FlyoutNav from "../../components/FlyoutNav";
 import ReportForm from "../../components/ReportForm"
 import { ChakraProvider } from '@chakra-ui/react'
 import NewPostCard from "../../components/PostCards";
-
+import "./postsPg.css"
 
 export default function PostPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     getAllPosts().then(setPosts);
-  }, []);
-  console.log(posts);
+  }, [])
 
-  return <>
-
-    <FlyoutNav />
-    <div className="flex pl-10 mt-[60px]">
-      <div className="pr-10 z-1000">
-        <ReportForm setPosts={setPosts} />
-      </div>
-      <div className="absolute top-[50%] left-[50%]">
-        <ul className="posts-list">
-          {
-            posts?.map((post) => {
-              return <li key={post.id}>
+  return (
+    <>
+      <FlyoutNav />
+      <div className="bg-oxford" style={{ paddingTop: '70px', display: 'flex', minHeight: 'calc(100vh - 70px)' }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <ReportForm setPosts={setPosts} />
+        </div>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <ul className="posts-list" style={{ width: '100%' }}>
+            {posts.map((post) => (
+              <li key={post.id}>
                 <ChakraProvider>
                   <NewPostCard post={post} />
                 </ChakraProvider>
               </li>
-            })
-          }
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div >
-  </>;
-}
-
+    </>
+  );
+};
