@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom"; // Correctly import useParams from react-router-dom
-import { getAllPosts } from "../../adapters/post-adapter"; // Ensure createComment is imported
+import { useParams } from "react-router-dom";
+import { getAllPosts } from "../../adapters/post-adapter";
 import { createComment } from "../../adapters/comment-adapter";
 import FlyoutNav from "../../components/FlyoutNav";
-import { Box, Image, Text, Avatar } from '@chakra-ui/react';
+import { Box, Image, Text, Avatar, Heading, Input, Button, VStack, HStack } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
 import CurrentUserContext from "../../contexts/current-user-context";
 import { getAllCommentByPostId } from "../../adapters/comment-adapter";
 
@@ -11,7 +12,7 @@ export default function HomePage() {
     const [newPosts, setPosts] = useState([]);
     const [comment, setComment] = useState();
     const [userId, setUserId] = useState();
-    const [comments, setComments] = useState();
+    const [comments, setComments] = useState([]);
     const { id } = useParams();
 
     const { currentUser } = useContext(CurrentUserContext);
@@ -25,16 +26,13 @@ export default function HomePage() {
 
     useEffect(() => {
         getAllCommentByPostId(id).then(setComments)
-    }, [])
-
-    console.log(comments)
+    }, [id]);
 
     const [commentData, setCommentData] = useState({
         comment: '',
         user_id: userId,
         post_id: id
     });
-
 
     const [errorText, setErrorText] = useState(null);
 
@@ -49,76 +47,79 @@ export default function HomePage() {
         const [newComment, error] = await createComment(commentData);
         if (error) return setErrorText(error.message);
         setComment(newComment);
-        console.log(newComment);
-
+        setComments(prev => [...prev, newComment]);
         event.target.reset();
     };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-
         setCommentData(prevData => ({
             ...prevData,
             [name]: value
         }));
     };
 
-    // if (errorText) return <h1>loading!!!</h1>;
+    console.log(comments);
 
     return (
-        <div>
+        <Box bg="gray.800" color="white" minHeight="100vh">
             <FlyoutNav />
-            <div className="flex justify-center mt-16 ">
-                <div className="w-full max-w-4xl pt-4 rounded-lg shadow-md">
-                    <div className="flex items-center mb-4">
+            <Box maxW="4xl" mx="auto" mt="16" p="4">
+                <Box bg="gray.700" p="4" borderRadius="md" shadow="md">
+                    <HStack spacing="4" mb="4">
                         <Avatar
                             name={post?.username}
                             src={post?.user_picture || 'defaultAvatarUrl'}
-                            className="m-4"
                         />
-                        <Text className="text-lg font-semibold">{post?.username}</Text>
-                    </div>
+                        <Text fontSize="lg" fontWeight="bold">{post?.username}</Text>
+                    </HStack>
+                    <Image
+                        src={post?.picture || '/weAreOne.jpg'}
+                        alt='Post image'
+                        borderRadius="md"
+                        mb="4"
+                    />
+                    <Heading size="md" mb="2">Description:</Heading>
+                    <Text fontSize="lg" mb="4">{post?.description}</Text>
 
-                    <div className="mb-4">
-                        <Image
-                            src={post?.picture || '/weAreOne.jpg'}
-                            alt='Post image'
-                            className="w-full h-auto rounded-lg"
-                            fit='cover'
-                        />
-                    </div>
-                    <Box p='4'>
-                        <Text mb='4' className="text-lg font-semibold">{post?.description}</Text>
-                    </Box>
-                    <div className="mt-8">
-                        <div className="mb-6">
-                            <form className=" w-[54rem]" onSubmit={handleSubmit}>
-                                <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-2">
-                                    Add a comment
-                                </label>
-                                <input
-                                    type="text"
-                                    id="comment"
-                                    name="comment" // Ensure the input has a name attribute to be captured by handleChange
-                                    className="w-full  p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Write your comment here..."
-                                    onChange={handleChange}
-                                />
-                                <button>Send!</button>
-                            </form>
-                            <div className="space-y-4">
-                                <h1>Comments</h1>
-                                {comments?.map((comment, index) => (
-                                    <div key={index} className="p-4 bg-gray-100 rounded-lg">
-                                        <p className="text-sm text-gray-700 font-semibold">{comment.username}</p>
-                                        <p className="mt-2 text-gray-900">{comment.comment}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <Heading size="md" mb="4">Comments:</Heading>
+                    <VStack spacing="4" align="start">
+                        {comments?.map((comment, index) => (
+                            <Box key={index} bg="gray.600" p="4" borderRadius="md" w="full">
+                                <HStack spacing="4" mb="2">
+                                    <Link to={`/users/${post.user_id}`}>
+                                        <Avatar
+                                            name={post?.username}
+                                            src={post.user_picture || 'defaultAvatarUrl'}
+                                        />
+                                    </Link>
+                                    <Link to={`/users/${post.user_id}`}>
+                                        <Text fontWeight="bold">{post.username}</Text>
+                                    </Link>
+                                </HStack>
+                                <Text>{comment.comment}</Text>
+                            </Box>
+                        ))}
+                    </VStack>
+
+                    <form onSubmit={handleSubmit} style={{ marginTop: '1rem' }}>
+                        <VStack spacing="4">
+                            <Input
+                                type="text"
+                                id="comment"
+                                name="comment"
+                                placeholder="Write your comment here..."
+                                onChange={handleChange}
+                                bg="gray.700"
+                                border="none"
+                                focusBorderColor="blue.500"
+                            />
+                            <Button type="submit" colorScheme="blue">Send</Button>
+                        </VStack>
+                        {errorText && <Text color="red.500">{errorText}</Text>}
+                    </form>
+                </Box>
+            </Box>
+        </Box>
     );
 }
