@@ -14,16 +14,13 @@ export default function Example() {
             <div className="content-container" style={{ padding: '20px' }}>
                 <div className="cards-container" style={{ marginTop: '20px' }}>
                     <div className="bg-indigo">
-                        <div className="mx-auto max-w-2xl lg:mx-0 pb-8">
+                        <div className="mx-auto lg:mx-0 w-full px-4 lg:px-16 pb-8">
                             <h2 className="text-4xl font-bold tracking-tight text-oxford sm:text-6xl">We know that safe housing is a human right</h2>
                             <ul className="mt-6 text-lg leading-8 text-slate-700">
                                 <li>Public housing complexes face maintenance issues that NYCHA does not address.</li>
-                                <li>It takes NYCHA on average 370 days to complete repairs, and that number is rising.
-                                </li>
-                                <li>Leaving NYCHA residents fed up and with their health and safety at risk.
-                                </li>
+                                <li>It takes NYCHA on average 370 days to complete repairs, and that number is rising.</li>
+                                <li>Leaving NYCHA residents fed up and with their health and safety at risk.</li>
                             </ul>
-                            {/* <p className="mt-6 text-lg leading-8 text-slate-700">That's why we seek to empower users </p> */}
                         </div>
 
                         <figure className="mx-auto max-w-screen-md text-center pb-8">
