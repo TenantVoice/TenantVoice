@@ -229,74 +229,74 @@ exports.seed = async (knex) => {
     {
       "user_id": 1,
       "location_id": 1,
-      "category": "mold",
+      "category": "structural damage",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a lot of mold on my ceiling. I started noticing it a month ago and I told my landlord a couple weeks ago but he has not responded to me.",
-      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.environix.com%2Fwp-content%2Fuploads%2FBlack-mold-on-ceiling-2.jpeg&f=1&nofb=1&ipt=3884a03fe67dfc8c1445ac121b70caf4cf84ca2fa8b38a49a752e1400e90251d&ipo=images"
+      "description": "There's a crack in the wall of my living room. It started small about 3 months ago, but I slowly noticed it getting bigger. I also have heard my neighbor talk about something similar in her wall, and it's scaring me because the crack is right above my bed.",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.homedit.com%2Fwp-content%2Fuploads%2F2021%2F04%2FHow-To-Fix-A-Cracked-Wall.jpg&f=1&nofb=1&ipt=262466335f05439833c2e9d8fcfcbe4b77afd907d5e7f9156dbd40ccfa07ea6c&ipo=images"
     },
     {
       "user_id": 2,
       "location_id": 2,
-      "category": "infestation",
+      "category": "plumbing issue",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "There are roaches infested in my kitchen. I keep my apartment clean and I never leave food out in my kitchen, and I notice it's coming from the pipes under my sink. I told my landlord about it and he told me that he'd fix the problem but has not gotten back to me.",
-      "picture": "roaches.png"
+      "description": "Water is leaking from the bathroom sink. It's been happening since I got back from my vacation 2 months ago. Everytime I go to wash my hands in the bathroom sink, I hear a lot of water leak from the pipes in the cabinet. I plan on telling my landlord, but I'm wondering if anyone else has similar issues.",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F961qtq_tJgs%2Fmaxresdefault.jpg&f=1&nofb=1&ipt=3fda0a8474dff9eef7d8d5cab0bbb4d17301262f2be012d6fd155736ab337577&ipo=images"
     },
     {
       "user_id": 3,
       "location_id": 3,
-      "category": "structural damage",
+      "category": "electrical issue",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a crack in the wall of my living room. It started small about 3 months ago, but I slowly noticed it getting bigger. I also have heard my neighbor talk about something similar in her wall, and it's scaring me because the crack is right above my bed.",
-      "picture": "crack.png"
+      "description": "There's a short circuit in the living room. Everytime I go to plug in any outlet in my living room, I see a spark of electricity. My landlord called me two months ago and said that he'd come over, but he never did. This is so dangerous!! And it's unacceptable for this to keep happening, does anyone else have a similar problem?",
+      "picture": "something.png"
     },
     {
       "user_id": 4,
       "location_id": 4,
-      "category": "plumbing issue",
+      "category": "heating problem",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "Water is leaking from the bathroom sink. It's been happening since I got back from my vacation 2 months ago. Everytime I go to wash my hands in the bathroom sink, I hear a lot of water leak from the pipes in the cabinet. I plan on telling my landlord, but I'm wondering if anyone else has similar issues.",
-      "picture": "leak.png"
+      "description": "The heater in my bedroom is not working. I am an elderly woman, and in the winter time the cold is really harsh on my body. I called my landlord 12 times but have not gotten a response. Does anyone in my complex know how to fix a broken heater or have the tools?",
+      "picture": "something.png"
     },
     {
       "user_id": 5,
       "location_id": 5,
-      "category": "pest problem",
+      "category": "security concern",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "My apartment is infested with bed bugs. I started noticing them in my bed two months after I moved in. I have three kids and they started getting bitten too. I paid for an exterminator, but they kept coming back. I called my landlord but he hasn't gotten back to me. Does anyone else in my complex share the same problem?",
-      "picture": "bedbugs.png"
+      "description": "There's a broken lock on my front door. I noticed it happened last Thursday when I got home from work and the thing is this is not the first time this has happened. I called the cops and my landlord and nothing came of it. I know my neighbor experienced something similar. If more of us go to the police maybe there will be more for them to work with.",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Funitedlocksmith.net%2Fwp-content%2Fuploads%2Fbroken-door-lock-solution.jpg&f=1&nofb=1&ipt=af35399ca780d1ebb1069c31cb41c2f4f1dbf1e72170d175b3fc72813a9f2479&ipo=images"
     },
     {
       "user_id": 6,
       "location_id": 6,
-      "category": "electrical issue",
+      "category": "structural damage",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a short circuit in the living room. Everytime I go to plug in any outlet in my living room, I see a spark of electricity. My landlord called me two months ago and said that he'd come over, but he never did. This is so dangerous!! And it's unacceptable for this to keep happening, does anyone else have a similar problem?",
-      "picture": "short_circuit.png"
+      "description": "The ceiling in the hallway has a big crack. I noticed it a few weeks ago, but I don't know what to do because it keeps getting better and the ceiling is sinking in. My landlord won't do anything and I'm sick and tired of this. Does anyone have any experience with this too?",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdesigningidea.com%2Fwp-content%2Fuploads%2F2021%2F01%2Fcrack-in-ceiling-from-water-leak-is.jpg&f=1&nofb=1&ipt=ea162774d33fc2a6e80ffb8917783ce9e7fabfcb8fafbc2b5b79139856d11614&ipo=images"
     },
     {
       "user_id": 7,
       "location_id": 7,
-      "category": "heating problem",
+      "category": "electrical issue",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "The heater in my bedroom is not working. I am an elderly woman, and in the winter time the cold is really harsh on my body. I called my landlord 12 times but have not gotten a response. Does anyone in my complex know how to fix a broken heater or have the tools?",
-      "picture": "heater_issue.png"
+      "description": "The light switch in the kitchen sparks when turned on. I live with children and my parents who are elderly. This is so dangerous and my landlord isn't taking this problem seriously. What do I do? Do any of my neighbors know how to fix electrical problems?",
+      "picture": "something.png"
     },
     {
       "user_id": 8,
       "location_id": 8,
-      "category": "security concern",
+      "category": "heating problem",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a broken lock on my front door. I noticed it happened last Thursday when I got home from work and the thing is this is not the first time this has happened. I called the cops and my landlord and nothing came of it. I know my neighbor experienced something similar. If more of us go to the police maybe there will be more for them to work with.",
-      "picture": "broken_lock.png"
+      "description": "The radiator in the living room doesn't heat up. I have a newborn baby and for the sake of my child this is a really dangerous problem. I went to my landlord and she came over once to look at it, but she didn't actually fix the problem or hire anyone to fix it. I need help!",
+      "picture": "cold_radiator.png"
     },
     {
       "user_id": 9,
       "location_id": 9,
-      "category": "structural damage",
+      "category": "security concern",
       "created_at": "2024-05-15T12:00:00Z",
-      "description": "The ceiling in the hallway has a big crack. I noticed it a few weeks ago, but I don't know what to do because it keeps getting better and the ceiling is sinking in. My landlord won't do anything and I'm sick and tired of this. Does anyone have any experience with this too?",
-      "picture": "crack_ceiling.png"
+      "description": "There's a broken window in the laundry room. Nothing else was damaged or stolen, but I don't know what to do because I feel so unsafe. I hope this doesn't happen again",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.xperthometips.com%2Fwp-content%2Fuploads%2F2014%2F09%2Ffix-a-broken-window-1200x800_c.jpg&f=1&nofb=1&ipt=616e06a0607fe5a9b9996233206db59d2631dea83f7358986b73217bfe58adec&ipo=images"
     },
     {
       "user_id": 10,
@@ -317,34 +317,34 @@ exports.seed = async (knex) => {
     {
       "user_id": 12,
       "location_id": 12,
-      "category": "electrical issue",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "The light switch in the kitchen sparks when turned on. I live with children and my parents who are elderly. This is so dangerous and my landlord isn't taking this problem seriously. What do I do? Do any of my neighbors know how to fix electrical problems?",
-      "picture": "spark_switch.png"
-    },
-    {
-      "user_id": 13,
-      "location_id": 13,
-      "category": "heating problem",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "The radiator in the living room doesn't heat up. I have a newborn baby and for the sake of my child this is a really dangerous problem. I went to my landlord and she came over once to look at it, but she didn't actually fix the problem or hire anyone to fix it. I need help!",
-      "picture": "cold_radiator.png"
-    },
-    {
-      "user_id": 14,
-      "location_id": 14,
-      "category": "security concern",
-      "created_at": "2024-05-15T12:00:00Z",
-      "description": "There's a broken window in the laundry room. Nothing else was damaged or stolen, but I don't know what to do because I feel so unsafe. I hope this doesn't happen again",
-      "picture": "broken_window.png"
-    },
-    {
-      "user_id": 15,
-      "location_id": 15,
       "category": "mold",
       "created_at": "2024-05-15T12:00:00Z",
       "description": "There's mold growing on the bathroom tiles. The ventilation in my bathroom are blocked and I think that contributes a lot to the mold problem. Called my landlord about it three weeks: no response. Do any of my neighbors have any way of dealing with this?",
       "picture": "mold_tiles.png"
+    },
+    {
+      "user_id": 13,
+      "location_id": 13,
+      "category": "mold",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "There's a lot of mold on my ceiling. I started noticing it a month ago and I told my landlord a couple weeks ago but he has not responded to me.",
+      "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.environix.com%2Fwp-content%2Fuploads%2FBlack-mold-on-ceiling-2.jpeg&f=1&nofb=1&ipt=3884a03fe67dfc8c1445ac121b70caf4cf84ca2fa8b38a49a752e1400e90251d&ipo=images"
+    },
+    {
+      "user_id": 14,
+      "location_id": 14,
+      "category": "infestation",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "There are roaches infested in my kitchen. I keep my apartment clean and I never leave food out in my kitchen, and I notice it's coming from the pipes under my sink. I told my landlord about it and he told me that he'd fix the problem but has not gotten back to me.",
+      "picture": "/images/image-bug.png"
+    },
+    {
+      "user_id": 15,
+      "location_id": 15,
+      "category": "pest problem",
+      "created_at": "2024-05-15T12:00:00Z",
+      "description": "My apartment is infested with bed bugs. I started noticing them in my bed two months after I moved in. I have three kids and they started getting bitten too. I paid for an exterminator, but they kept coming back. I called my landlord but he hasn't gotten back to me. Does anyone else in my complex share the same problem?",
+      "picture": "bedbugs.png"
     },
   ]);
 };

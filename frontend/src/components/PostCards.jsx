@@ -50,7 +50,7 @@ const NewPostCard = ({ post }) => {
                     </button>
                 </div>
                 <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
-                    <img src={post.picture || '../weAreOne.jpg'} alt='Post image' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
+                    <img src={post.picture || '../weAreOne.jpg'} alt='' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
                     <p style={{ marginTop: "16px" }}>{post.description}</p>
                 </Link>
             </div>
