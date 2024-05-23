@@ -30,31 +30,30 @@ export default function DataVisuals() {
                 <CountUpStats />
             </div>
 
-            <main className="bg-oxford flex min-h-screen flex-col items-center justify-center px-4 md:px-8 xl:px-10 py-44">
-                <div className="w-full gap-10 max-w-[1400px] pb-9">
+            <main className="bg-oxford flex flex-col items-center justify-center px-4 md:px-8 xl:px-10 py-44">
+                <div className="w-full pb-9">
                     <GridItem title="#NYCHA buildings">
                         <LineChartComponent />
                     </GridItem>
                 </div>
-                <div className="w-full max-w-[2000px] flex flex-col items-center space-y-10">
-                    <div className="grid justify-items-center space-x-1 xl:grid-cols-3 lg:grid-cols-4 w-[2000px] gap-[1px] mx-auto">
-                        <GridItem title="Days to solve Issues">
-                            <DayToSolveBarChart />
-                        </GridItem>
-                        <GridItem title="Complaints unresolved by NYCHA housing">
-                            <BarChartComponent />
-                        </GridItem>
-                    </div>
-                    <div className="grid justify-items-center space-x-10 xl:grid-cols-3 lg:grid-cols-2 w-[2000px] gap-[1px] mx-auto">
-                        <GridItem title="Users Complaints Category">
-                            <ThePieChart />
-                        </GridItem>
-                        <GridItem title="Where users are located">
-                            <UsersPieChart />
-                        </GridItem>
-                    </div>
+
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <GridItem title="Days it takes to solve issues">
+                        <DayToSolveBarChart />
+                    </GridItem>
+                    <GridItem title="Complaints filed by NYCHA Residents">
+                        <BarChartComponent />
+                    </GridItem>
+                    <GridItem title="Complaints by our users">
+                        <ThePieChart />
+                    </GridItem>
+                    <GridItem title="Where our users are from">
+                        <UsersPieChart />
+                    </GridItem>
                 </div>
-            </main>
+            </main >
+
         </>
     );
 };
