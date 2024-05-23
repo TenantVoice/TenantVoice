@@ -21,12 +21,13 @@ const WaterDropHero = () => {
                         </h2>
                     </Reveal>
                     <Reveal>
-                        <p className="pointer-events-auto max-w-xl text-sm text-slate-300 md:text-base">
-                            TenantVoice is a dedicated platform for NYCHA residents to publicly report their housing problems. We hope that by doing so, tenants have the ability to publicly call out their landlords and NYCHA, and connect to tenants facing similar problems.
-                        </p>
+                        <p className="pointer-events-auto max-w-xl text-xl md:text-lg text-slate-300">
+                            TenantVoice is a platform where NYCHA residents can openly share their housing-related issues. Our mission is to foster a supportive community where tenants can connect, ensuring no one feels isolated with their challenges. By bringing these issues to light, we enable residents to unite and advocate for better living conditions together.                        </p>
+
                     </Reveal>
                     <Reveal>
                         <Link to={`/sign-up`}>
+                            {/* // changed color and text to oxford, to have some padding  */}
                             <button className="pointer-events-auto mt-4 rounded bg-electric px-4 py-2 font-medium text-slate-100 transition-all hover:bg-indigo-700 active:scale-95 md:mt-6">
                                 Join Us Today
                             </button>
