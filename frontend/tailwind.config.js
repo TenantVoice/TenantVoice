@@ -13,7 +13,10 @@ export default {
         'poppy': "#DF2935",
         'electric': "#374AF2",
         'oxford': "#001D4A",
-        'bluePurp': "#6775F5"
+        'bluePurp': "#6775F5",
+        'shade': "#34496E",
+        'orangy': "#E0AF67",
+        'redish': "#f05454"
       }
     },
 

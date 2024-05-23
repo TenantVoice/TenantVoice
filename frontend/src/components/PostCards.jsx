@@ -13,7 +13,7 @@ function getAvatarColor(username) {
 
 const GlowingChip = ({ children }) => {
     return (
-        <span className="relative z-10 mb-4 pl-4 bg-electric inline-block rounded-full border border-zinc-700 bg-zinc-900/20 px-3 py-1.5 text-xs text-red-900 md:mb-0">
+        <span className="relative z-10 mb-4 pl-4 bg-electric inline-block rounded-full border border-zinc-700 bg-redish px-3 py-1.5 text-xs text-red-900 md:mb-0">
             {children}
             <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-gradient-to-r from-zinc-500/0 via-zinc-300 to-zinc-500/0" />
         </span>
@@ -28,10 +28,10 @@ const NewPostCard = ({ post }) => {
     };
 
     return (
-        <div className="card" style={{ backgroundColor: "white", maxWidth: "40rem", borderRadius: "12px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", color: "black", marginBottom: "1rem" }}>
+        <div className="card" style={{ backgroundColor: "#34496E", maxWidth: "40rem", borderRadius: "12px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", color: "black", marginBottom: "1rem" }}>
             <div className="card-body" style={{ padding: "16px" }}>
                 <div className="flex justify-between items-center">
-                    <div className="flex items-center">
+                    <div className="flex flex-grow items-center">
                         <Link to={`/users/${post.user_id}`}>
                             <Avatar
                                 name={post?.username}
@@ -40,12 +40,12 @@ const NewPostCard = ({ post }) => {
                         </Link>
                         <div>
                             <Link to={`/users/${post.user_id}`}>
-                                <h2 className="username" style={{ fontSize: "1.25rem", margin: 0 }}>{post.username}</h2>
+                                <h2 className="username" style={{ fontSize: "1.25rem", margin: 0, fontWeight: "bold", color: 'white', letterSpacing: '0.0575rem', }}>{post.username}</h2>
                             </Link>
-                            <p style={{ fontSize: "0.875rem", color: "#fc3a3a", margin: 0 }}>is facing a {post.category} problem</p>
+                            <p style={{ fontSize: "1rem", color: "#A7DADC", margin: 0, letterSpacing: '0.0575rem', }}>is facing a {post.category} problem</p>
                         </div>
-                        <GlowingChip>Ongoing</GlowingChip>
                     </div>
+                    <GlowingChip>On going</GlowingChip>
                     <button className="icon-button" style={{ background: "none", border: "none", cursor: "pointer", color: "black" }}>
                         <BsThreeDotsVertical />
                     </button>
@@ -53,13 +53,15 @@ const NewPostCard = ({ post }) => {
 
                 <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
                     <img src={post.picture || '../weAreOne.jpg'} alt='' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
-                    <p style={{ marginTop: "16px" }}>{post.description}</p>
+                    <p style={{ marginTop: "16px", color: "#FFFFFF" }}>{post.description}</p>
                 </Link>
 
+                <hr style={{ borderTop: "1px solid rgba(108, 122, 137, 0.5)", margin: "10px 0" }} />
                 <div className="card-footer" style={{ padding: "16px", display: "flex", justifyContent: "space-between" }}>
                     <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
-                        <button className="icon-button" style={{ background: "none", border: "none", cursor: "pointer", color: "black", display: "flex", alignItems: "center", height: "10px" }}>
+                        <button className="icon-button" style={{ background: "none", border: "none", cursor: "pointer", color: "#667a96", display: "flex", alignItems: "center", height: "10px", fontSize: "24px" }}>
                             <BiChat />
+                            <span style={{ marginLeft: "8px", fontSize: "24px" }}>Comment</span>
                         </button>
                     </Link>
                 </div>
