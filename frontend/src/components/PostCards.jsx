@@ -14,7 +14,6 @@ function getAvatarColor(username) {
     return avatarColors[index];
 };
 
-
 const GlowingChip = ({ children }) => {
     return (
         <span className="relative z-10 mb-4 pl- 4 bg-electric inline-block rounded-full border border-zinc-700 bg-zinc-900/20 px-3 py-1.5 text-xs text-orange-300 md:mb-0">
@@ -23,7 +22,6 @@ const GlowingChip = ({ children }) => {
         </span>
     );
 };
-
 
 const NewPostCard = ({ post }) => {
     const [likes, setLikes] = useState(0);
@@ -61,9 +59,6 @@ const NewPostCard = ({ post }) => {
                             </Box>
                             <Box>
                                 <GlowingChip size='sm' paddingLeft="3.75rem" color="#FF8811">Ongoing</GlowingChip>
-                                {/* <Heading size='sm' paddingLeft="3.75rem" color="#FF8811">Status: Ongoing</Heading> */}
-                                {/* // vv when we can show the location, then uncomment this vv */}
-                                {/* <Text fontSize='sm' color="#A8DADC" fontStyle="italic" paddingLeft="3.75rem">New York, NY</Text> */}
                             </Box>
                         </Flex>
 
@@ -89,30 +84,7 @@ const NewPostCard = ({ post }) => {
                         <Box p='2'>
                             <Text color="#ffffff">{post.description}</Text>
                         </Box>
-
                     </Link>
-                    {/* <Box px='2' pt="2">
-                        <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }} />
-                    </Box>
-                    <CardFooter
-                        justify='space-between'
-                        flexWrap='wrap'
-
-                        sx={{
-                            '& > button': {
-                                minW: '136px',
-                            },
-                        }}
-                    >
-                        <Button onClick={handleClick} color="#f7f7f7" variant='ghost' leftIcon={<BiLike />}>
-                            Like {likes}
-                        </Button>
-                        <Link to={`/posts/${post.id}`} key={post.id}>
-                            <Button color="#f7f7f7" variant='ghost' leftIcon={<BiChat />}>
-                                Comment
-                            </Button>
-                        </Link>
-                    </CardFooter> */}
                 </Grid>
             </Box>
         </Card>
