@@ -111,7 +111,9 @@ const Form = () => {
 
                 <form onSubmit={handleSubmit} className="w-full">
                     {errorText && <p className="text-red-500">{errorText}</p>}
+
                     <UploadWidget onUpload={handleImageUpload} />
+
                     <motion.div variants={primaryVariants} className="mb-2 w-full">
                         <label htmlFor="fullName" className="mb-1 inline-block text-sm font-medium">
                             Full Name<span className="text-red-600">*</span>
@@ -169,7 +171,7 @@ const Form = () => {
                             required
                         />
                         {showDropdown && (
-                            <ul className="absolute w-full bg-white border border-slate-300 z-10">
+                            <ul className="absolute w-[21%] bg-white border border-slate-300 z-10">
                                 {options.map((option, index) => (
                                     <li
                                         key={index}
@@ -199,16 +201,12 @@ const Form = () => {
 
 const SupplementalContent = () => {
     return (
-        <div className="group sticky top-4 m-4 h-80 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-[calc(100vh_-_2rem)]">
+        <div className="group sticky top-20 m-4 h-80 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-[calc(100vh_-_2rem)]">
             <img
                 alt="poster of we are"
                 src="../weAreOne.jpg"
                 className="h-full w-full bg-white object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
             />
-
-            <div className="absolute right-2 top-4 z-10">
-                <FiArrowUpRight className="rotate-45 text-6xl text-indigo-200 opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:opacity-100" />
-            </div>
 
             <motion.div
                 initial="initial"
