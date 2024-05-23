@@ -45,7 +45,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
     return (
         //removed mt-8 vv, mx-auto my-auto 
         // <form style={{ zIndex: 1000 }} onSubmit={handleSubmit} className="fixed left-4 p-4 w-full bg-white rounded shadow-md">
-        <form onSubmit={handleSubmit} className="text-white w-3/4 border-white rounded-md max-h-[550px] sticky top-20">
+        <form onSubmit={handleSubmit} className="text-white w-[120%] border-white rounded-md max-h-[550px] sticky top-[8rem] max-w-[40rem]">
             <h1 className="text-center text-2xl font-semibold mb-4">Report a Problem</h1>
             <div className="mb-8">
                 <label htmlFor="category" className="mb-1 block text-sm font-medium">Complaint category:</label>

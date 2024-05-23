@@ -36,14 +36,14 @@ export default function PostPage() {
 
 
       <FlyoutNav />
-      <div className="bg-oxford mt-[72px] w-full flex">
-        <div className="w-full">
+      <div className="bg-oxford flex pt-10 justify-items-center">
+        <div className="ml-[40px]">
           <ReportForm setPosts={setPosts} />
         </div>
         <div>
-          <ul className="">
+          <ul className="p-10">
             {posts.map((post) => (
-              <li key={post.id} className="mb-20">
+              <li key={post.id} className="mb-20 w-[100%] ml-[30%]">
                 <ChakraProvider>
                   <NewPostCard post={post} />
                 </ChakraProvider>

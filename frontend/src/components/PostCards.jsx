@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Box, Flex, Avatar, Text, IconButton, Image, Grid, Heading, Card, CardBody, CardFooter, Button, useColorModeValue } from '@chakra-ui/react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { BiShare, BiChat, BiLike } from 'react-icons/bi';
 import { useState } from 'react';
+import { Avatar } from "@chakra-ui/react";
 
-const avatarColors = ["blue.200", "green.200", "orange.200", "cyan.200", "teal.200"];
+const avatarColors = ["#cbd5e0", "#9ae6b4", "#feb2b2", "#81e6d9", "#4fd1c5"];
 
 function getAvatarColor(username) {
     const index = Math.abs(username?.charCodeAt(0) + username.length) % avatarColors.length;
@@ -28,34 +28,33 @@ const NewPostCard = ({ post }) => {
     };
 
     return (
-        <Card bg={useColorModeValue("white", "#001D4A")} maxW="70rem" boxShadow="lg" borderRadius="lg">
-            <CardBody>
-                <Flex align="center" justify="space-between">
-                    <Flex align="center">
+        <div className="card" style={{ backgroundColor: "white", maxWidth: "40rem", borderRadius: "12px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", color: "black", marginBottom: "1rem" }}>
+            <div className="card-body" style={{ padding: "16px" }}>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
                         <Link to={`/users/${post.user_id}`}>
-                            <Avatar name={post.username} src={post.user_picture || 'defaultAvatarUrl'} bg={getAvatarColor(post.username)} />
+                            <div className="avatar" style={{ backgroundColor: getAvatarColor(post.username), borderRadius: "50%", width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+                                <Avatar src={post.user_picture} />
+                            </div>
                         </Link>
-                        <Box ml="3">
+                        <div>
                             <Link to={`/users/${post.user_id}`}>
-                                <Heading size="md" color={useColorModeValue("gray.800", "white")}>{post.username}</Heading>
+                                <h2 className="username" style={{ fontSize: "1.25rem", margin: 0 }}>{post.username}</h2>
                             </Link>
-                            <Text fontSize="sm" color="red.400">is facing a {post.category} problem</Text>
-                        </Box>
+                            <p style={{ fontSize: "0.875rem", color: "#fc3a3a", margin: 0 }}>is facing a {post.category} problem</p>
+                        </div>
                         <GlowingChip>Ongoing</GlowingChip>
-                    </Flex>
-                    <IconButton
-                        variant="ghost"
-                        colorScheme="gray"
-                        aria-label="See menu"
-                        icon={<BsThreeDotsVertical />}
-                    />
-                </Flex>
-                <Link to={`/posts/${post.id}`} key={post.id}>
-                    <Image src={post.picture || '../weAreOne.jpg'} alt='Post image' borderRadius="lg" my="4" />
-                    <Text color={useColorModeValue("gray.800", "white")}>{post.description}</Text>
+                    </div>
+                    <button className="icon-button" style={{ background: "none", border: "none", cursor: "pointer", color: "black" }}>
+                        <BsThreeDotsVertical />
+                    </button>
+                </div>
+                <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
+                    <img src={post.picture || '../weAreOne.jpg'} alt='Post image' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
+                    <p style={{ marginTop: "16px" }}>{post.description}</p>
                 </Link>
-            </CardBody>
-        </Card>
+            </div>
+        </div>
     );
 };
 
