@@ -13,10 +13,14 @@ class Comment {
         return rows[0];
     }
 
-    static async getAllCommentByPostId(id) {
-        const query = `SELECT * FROM comments WHERE post_id=?`
-        const { rows } = await knex.raw(query, [id])
-
+    static async getAllCommentByPostId(post_id) {
+        const query = `
+        SELECT comments.*, users.username, users.picture
+        FROM comments
+        JOIN users ON comments.user_id = users.id
+        WHERE comments.post_id = ?
+        `;
+        const { rows } = await knex.raw(query, [post_id]);
         return rows;
     }
 }
