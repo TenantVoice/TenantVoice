@@ -42,7 +42,7 @@ const NewPostCard = ({ post }) => {
     }
 
     return (
-        <Card maxW='md' m="4" bg="#001D4A">
+        <Card bg="#001D4A">
             <Box borderWidth='1px' borderRadius='lg' overflow='hidden' color={"white"} borderColor="#4C6085">
                 <Grid templateColumns="repeat(1, 1fr)" gap={6} justifyContent="center" width="100%" p="4" >
                     <Flex padding='4' align='center' justify='space-between'>
@@ -82,7 +82,8 @@ const NewPostCard = ({ post }) => {
                             src={post.picture || '../weAreOne.jpg'}
                             alt='Post image'
                             fit='cover'
-
+                            maxHeight='500px'
+                            maxWidth='500px'
 
                         />
                         <Box p='2'>
@@ -90,10 +91,7 @@ const NewPostCard = ({ post }) => {
                         </Box>
 
                     </Link>
-                    {/* <Box p='2'>
-                        <Text ml='2' color="#4C6085">{date}</Text>
-                    </Box> */}
-                    <Box px='2' pt="2">
+                    {/* <Box px='2' pt="2">
                         <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }} />
                     </Box>
                     <CardFooter
@@ -114,7 +112,7 @@ const NewPostCard = ({ post }) => {
                                 Comment
                             </Button>
                         </Link>
-                    </CardFooter>
+                    </CardFooter> */}
                 </Grid>
             </Box>
         </Card>

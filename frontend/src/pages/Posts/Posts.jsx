@@ -15,9 +15,9 @@ export default function PostPage() {
 
   return (
     <>
-      <FlyoutNav />
+      {/* <FlyoutNav />
       <div className="bg-oxford" style={{ paddingTop: '70px', display: 'flex', minHeight: 'calc(100vh - 70px)' }}>
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="border-4" style={{ flex: 1, display: 'flex', justifyContent: 'end' }}>
           <ReportForm setPosts={setPosts} />
         </div>
         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -31,7 +31,28 @@ export default function PostPage() {
             ))}
           </ul>
         </div>
+      </div > */}
+
+
+
+      <FlyoutNav />
+      <div className="bg-oxford mt-[72px] w-full flex">
+        <div className="w-full">
+          <ReportForm setPosts={setPosts} />
+        </div>
+        <div>
+          <ul className="">
+            {posts.map((post) => (
+              <li key={post.id} className="mb-20">
+                <ChakraProvider>
+                  <NewPostCard post={post} />
+                </ChakraProvider>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
+
     </>
   );
 };
