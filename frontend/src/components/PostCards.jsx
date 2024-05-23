@@ -34,7 +34,7 @@ const NewPostCard = ({ post }) => {
                     <div className="flex items-center">
                         <Link to={`/users/${post.user_id}`}>
                             <div className="avatar" style={{ backgroundColor: getAvatarColor(post.username), borderRadius: "50%", width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
-                                <Avatar src={post.user_picture} />
+                                <Avatar src={post.user_picture || 'defaultAvatarUrl'} />
                             </div>
                         </Link>
                         <div>
@@ -49,10 +49,17 @@ const NewPostCard = ({ post }) => {
                         <BsThreeDotsVertical />
                     </button>
                 </div>
-                <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
-                    <img src={post.picture || '../weAreOne.jpg'} alt='Post image' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
-                    <p style={{ marginTop: "16px" }}>{post.description}</p>
-                </Link>
+
+                <img src={post.picture || '../weAreOne.jpg'} alt='Post image' style={{ borderRadius: "12px", width: "100%", marginTop: "16px" }} />
+                <p style={{ marginTop: "16px" }}>{post.description}</p>
+
+                <div className="card-footer" style={{ padding: "16px", display: "flex", justifyContent: "space-between" }}>
+                    <Link to={`/posts/${post.id}`} key={post.id} style={{ textDecoration: "none", color: "inherit" }}>
+                        <button className="icon-button" style={{ background: "none", border: "none", cursor: "pointer", color: "black", display: "flex", alignItems: "center", height: "10px" }}>
+                            <BiChat />
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
