@@ -13,6 +13,9 @@ const postRouter = require('./routers/postRouter');
 
 const app = express();
 
+//images
+app.use('/images', express.static('public/images'));
+
 // middleware
 app.use(handleCookieSessions); // adds a session property to each request representing the cookie
 app.use(logRoutes); // print information about each incoming request
