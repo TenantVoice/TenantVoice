@@ -6,6 +6,7 @@ class Comment {
         console.log(comment, user_id, post_id)
         const query = `
         INSERT INTO comments(comment, user_id, post_id) VALUES(?, ?, ?)
+        RETURNING *
         `
         const { rows } = await knex.raw(query, [comment, user_id, post_id]);
 
