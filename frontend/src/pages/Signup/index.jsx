@@ -112,7 +112,9 @@ const Form = () => {
                 <form onSubmit={handleSubmit} className="w-full">
                     {errorText && <p className="text-red-500">{errorText}</p>}
 
-                    <UploadWidget onUpload={handleImageUpload} />
+                    <div className="pl-[6.5rem] pt-[1rem] pb-[1rem]">
+                        <UploadWidget onUpload={handleImageUpload} />
+                    </div>
 
                     <motion.div variants={primaryVariants} className="mb-2 w-full">
                         <label htmlFor="fullName" className="mb-1 inline-block text-sm font-medium">
@@ -201,13 +203,12 @@ const Form = () => {
 
 const SupplementalContent = () => {
     return (
-        <div className="group sticky top-20 m-4 h-80 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-[calc(100vh_-_2rem)]">
+        <div className="group sticky top-20 mt-[5rem] m-4 overflow-hidden rounded-3xl rounded-tl-[4rem] bg-slate-950 md:h-auto">
             <img
                 alt="poster of we are"
                 src="../weAreOne.jpg"
-                className="h-full w-full bg-white object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
+                className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
             />
-
             <motion.div
                 initial="initial"
                 whileInView="animate"
@@ -231,9 +232,6 @@ const SupplementalContent = () => {
                 >
                     Connect with your NYCHA neighbors in one place, to empower the community and voice out housing issues.
                 </motion.p>
-                <div className="flex items-center gap-4">
-
-                </div>
             </motion.div>
         </div>
     );
