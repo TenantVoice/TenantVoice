@@ -41,7 +41,7 @@ const CardCarousel = () => {
 
     return (
         <section className="bg-slate-100" ref={ref}>
-            <div className="relative overflow-hidden p-4">
+            <div className="relative overflow-hidden p-10">
                 {/* CARDS */}
                 <div className="mx-auto max-w-6xl">
                     <p className="mb-4 text-2xl font-semibold">
@@ -103,7 +103,7 @@ const Card = ({ url, category, title, description }) => {
             }}
         >
             <div className="absolute inset-0 z-20 rounded-2xl bg-gradient-to-b from-black/90 via-black/60 to-black/0 p-6 text-white transition-[backdrop-filter] hover:backdrop-blur-sm">
-                <span className="text-xs font-semibold uppercase text-violet-300">
+                <span className="text-xs font-semibold uppercase text-lightBlue">
                     {category}
                 </span>
                 <p className="my-2 text-3xl font-bold">{title}</p>

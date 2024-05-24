@@ -15,6 +15,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import PostPage from './pages/Posts/Post';
 import DataVisuals from './pages/DataVisualization';
 
+
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
   useEffect(() => {
