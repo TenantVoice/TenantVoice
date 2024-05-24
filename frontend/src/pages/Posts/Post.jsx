@@ -54,7 +54,7 @@ export default function HomePage() {
                 <FlyoutNav />
                 <Box maxW="5xl" mx="auto" mt="16" p="4">
                     <Flex direction={{ base: "column", md: "row" }} gap="4">
-                        <Box flex="1" bg="gray.700" p="4" borderRadius="md" shadow="md">
+                        <Box flex="1" bg="#34496E" p="4" borderRadius="md" shadow="md">
                             <HStack spacing="4" mb="4">
                                 <Avatar
                                     name={post?.username}
@@ -72,7 +72,7 @@ export default function HomePage() {
                             <Text fontSize="lg" mb="1">{post?.description}</Text>
                         </Box>
                         <div>
-                            <Box flex="1" bg="gray.700" p="4" borderRadius="md" shadow="md" maxH="50vh" overflowY="auto">
+                            <Box flex="1" bg="#34496E" p="4" borderRadius="md" shadow="md" maxH="50vh" overflowY="auto">
                                 <Heading size="md" mb="4">Comments:</Heading>
                                 <VStack spacing="4" align="start">
                                     {comments?.map((comment, index) => (
@@ -106,7 +106,7 @@ export default function HomePage() {
                                             border="none"
                                             focusBorderColor="blue.500"
                                         />
-                                        <Button type="submit" colorScheme="blue">Send</Button>
+                                        <Button type="submit" color="#374AF2">Send</Button>
                                     </VStack>
                                     {errorText && <Text color="red.500">{errorText}</Text>}
                                 </form>
