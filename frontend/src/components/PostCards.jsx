@@ -42,7 +42,7 @@ const NewPostCard = ({ post }) => {
                             <Link to={`/users/${post.user_id}`}>
                                 <h2 className="username" style={{ fontSize: "1.25rem", margin: 0, fontWeight: "bold", color: 'white', letterSpacing: '0.0575rem', }}>{post.username}</h2>
                             </Link>
-                            <p style={{ fontSize: "1rem", color: "#A7DADC", margin: 0, letterSpacing: '0.0575rem', }}>is facing a {post.category} problem</p>
+                            <p style={{ fontSize: "1rem", color: "#A7DADC", margin: 0, letterSpacing: '0.0575rem', }}>is facing a {post.category}</p>
                         </div>
                     </div>
                     <GlowingChip>On going</GlowingChip>
