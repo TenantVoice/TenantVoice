@@ -229,7 +229,7 @@ exports.seed = async (knex) => {
     {
       "user_id": 1,
       "location_id": 1,
-      "category": "structural damage",
+      "category": "structural issue",
       "created_at": "2024-05-15T12:00:00Z",
       "description": "There's a crack in the wall of my living room. It started small about 3 months ago, but I slowly noticed it getting bigger. I also have heard my neighbor talk about something similar in her wall, and it's scaring me because the crack is right above my bed.",
       "picture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.homedit.com%2Fwp-content%2Fuploads%2F2021%2F04%2FHow-To-Fix-A-Cracked-Wall.jpg&f=1&nofb=1&ipt=262466335f05439833c2e9d8fcfcbe4b77afd907d5e7f9156dbd40ccfa07ea6c&ipo=images"

@@ -64,7 +64,7 @@ export default function HomePage() {
                             </HStack>
                             <Image
                                 src={post?.picture || '/weAreOne.jpg'}
-                                alt='Post image'
+                                alt=''
                                 borderRadius="md"
                                 mb="4"
                             />

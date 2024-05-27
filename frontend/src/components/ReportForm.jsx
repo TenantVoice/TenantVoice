@@ -57,12 +57,12 @@ export default function ReportForm({ setPosts, setCount, count }) {
                     className=" text-black w-full rounded border border-gray-300 px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                 >
                     <option value="infestation">Infestation</option>
-                    <option value="heating">Heating Issue</option>
-                    <option value="structural">Structural Damage</option>
+                    <option value="heating">Heating</option>
+                    <option value="structural">Structural</option>
                     <option value="mold">Mold</option>
-                    <option value="plumbing">Plumbing Issue</option>
-                    <option value="electical">Electical Issue</option>
-                    <option value="security">Security Concern</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="electical">Electrical</option>
+                    <option value="security">Security</option>
                 </select>
             </div>
             <div className="mb-4">
