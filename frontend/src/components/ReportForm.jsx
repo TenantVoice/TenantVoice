@@ -22,7 +22,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
             setErrorText(error.message);
             return;
         }
-        setCount((count) => count + 1);
+        if (setCount) setCount((count) => count + 1);
         setPosts(prevPosts => [newPost, ...prevPosts]);
         setDescription('');
         setProblem_duration('');
@@ -43,9 +43,7 @@ export default function ReportForm({ setPosts, setCount, count }) {
     };
 
     return (
-        //removed mt-8 vv, mx-auto my-auto 
-        // <form style={{ zIndex: 1000 }} onSubmit={handleSubmit} className="fixed left-4 p-4 w-full bg-white rounded shadow-md">
-        <form onSubmit={handleSubmit} className="text-white w-[120%] border-white bg-shade rounded-md max-h-[550px] sticky top-[8rem] max-w-[40rem]">
+        <form onSubmit={handleSubmit} className="text-white w-full bg-shade rounded-xl p-5 border border-gray-700">
             <h1 className="text-center text-2xl font-semibold mb-4">Report a Problem</h1>
             <div className="mb-8">
                 <label htmlFor="category" className="mb-1 block text-sm font-medium">Complaint category:</label>

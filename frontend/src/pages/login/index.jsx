@@ -28,51 +28,51 @@ export default function LoginPage() {
     if (currentUser) return <Navigate to="/" />;
 
     return (
-        <>
+        <div className="min-h-screen bg-oxford flex flex-col">
             <FlyoutNav />
-            <motion.div
-                initial="initial"
-                whileInView="animate"
-                transition={{ staggerChildren: 0.05 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center pb-4 pt-20 md:py-20"
-            >
-                <div className="mx-auto my-auto max-w-lg px-4 md:pr-0">
+            <div className="flex flex-1 items-center justify-center px-4 py-20">
+                <motion.div
+                    initial="initial"
+                    whileInView="animate"
+                    transition={{ staggerChildren: 0.05 }}
+                    viewport={{ once: true }}
+                    className="w-full max-w-md bg-shade rounded-2xl border border-gray-700 p-8"
+                >
                     <motion.h1
                         variants={primaryVariants}
-                        className="mb-2 text-center text-4xl font-semibold"
+                        className="mb-2 text-center text-4xl font-semibold text-white"
                     >
                         Login
                     </motion.h1>
-                    <motion.p variants={primaryVariants} className="mb-8 text-center">
+                    <motion.p variants={primaryVariants} className="mb-8 text-center text-slate-400">
                         Welcome back! Please enter your details.
                     </motion.p>
 
                     <form onSubmit={handleSubmit} className="w-full" aria-labelledby="login-heading">
-                        <motion.div variants={primaryVariants} className="mb-2 w-full">
-                            <label htmlFor="username" className="mb-1 inline-block text-sm font-medium">
-                                Username<span className="text-red-600">*</span>
+                        <motion.div variants={primaryVariants} className="mb-4 w-full">
+                            <label htmlFor="username" className="mb-1 inline-block text-sm font-medium text-slate-300">
+                                Username<span className="text-red-500">*</span>
                             </label>
                             <input
                                 type="text"
                                 autoComplete="username"
                                 id="username"
                                 name="username"
-                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                className="w-full rounded border border-gray-600 bg-oxford text-white px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-electric placeholder-slate-500"
                                 required
                             />
                         </motion.div>
 
-                        <motion.div variants={primaryVariants} className="mb-4 w-full">
-                            <label htmlFor="password" className="mb-1 inline-block text-sm font-medium">
-                                Password<span className="text-red-600">*</span>
+                        <motion.div variants={primaryVariants} className="mb-6 w-full">
+                            <label htmlFor="password" className="mb-1 inline-block text-sm font-medium text-slate-300">
+                                Password<span className="text-red-500">*</span>
                             </label>
                             <input
                                 type="password"
                                 autoComplete="current-password"
                                 id="password"
                                 name="password"
-                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                className="w-full rounded border border-gray-600 bg-oxford text-white px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-electric placeholder-slate-500"
                                 required
                             />
                         </motion.div>
@@ -81,14 +81,14 @@ export default function LoginPage() {
                             variants={primaryVariants}
                             whileTap={{ scale: 0.985 }}
                             type="submit"
-                            className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+                            className="mb-1.5 w-full rounded bg-electric px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
                         >
-                            Log In!
+                            Log In
                         </motion.button>
                     </form>
-                    {!!errorText && <motion.p variants={primaryVariants} className="text-red-500">{errorText}</motion.p>}
-                </div>
-            </motion.div>
-        </>
+                    {!!errorText && <motion.p variants={primaryVariants} className="mt-3 text-red-400 text-center">{errorText}</motion.p>}
+                </motion.div>
+            </div>
+        </div>
     );
 }

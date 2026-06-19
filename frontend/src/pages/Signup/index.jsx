@@ -112,79 +112,104 @@ const Form = () => {
                 <form onSubmit={handleSubmit} className="w-full">
                     {errorText && <p className="text-red-500">{errorText}</p>}
 
-                    <div className="pl-[6.5rem] pt-[1rem] pb-[1rem]">
+                    <div className="flex justify-center pt-2 pb-3">
                         <UploadWidget onUpload={handleImageUpload} />
                     </div>
 
-                    <motion.div variants={primaryVariants} className="mb-2 w-full">
-                        <label htmlFor="fullName" className="mb-1 inline-block text-sm font-medium">
-                            Full Name<span className="text-red-600">*</span>
-                        </label>
-                        <input
-                            id="fullName"
-                            name="fullName"
-                            type="text"
-                            placeholder="Your name will only be visible to you"
-                            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                            onChange={handleChange}
-                            value={formData.fullName}
-                            required
-                        />
-                        <label htmlFor="username">Username</label>
-                        <input
-                            autoComplete="off"
-                            type="text"
-                            id="username"
-                            name="username"
-                            onChange={handleChange}
-                            value={formData.username}
-                        />
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            onChange={handleChange}
-                            value={formData.email}
-                        />
-                        <label htmlFor="password">Password</label>
-                        <input
-                            autoComplete="off"
-                            type="password"
-                            id="password"
-                            name="password"
-                            onChange={handleChange}
-                            value={formData.password}
-                        />
+                    <motion.div variants={primaryVariants} className="mb-2 w-full space-y-3">
+                        <div>
+                            <label htmlFor="fullName" className="mb-1 inline-block text-sm font-medium">
+                                Full Name<span className="text-red-600">*</span>
+                            </label>
+                            <input
+                                id="fullName"
+                                name="fullName"
+                                type="text"
+                                placeholder="Your name will only be visible to you"
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                onChange={handleChange}
+                                value={formData.fullName}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="username" className="mb-1 inline-block text-sm font-medium">
+                                Username<span className="text-red-600">*</span>
+                            </label>
+                            <input
+                                autoComplete="off"
+                                type="text"
+                                id="username"
+                                name="username"
+                                onChange={handleChange}
+                                value={formData.username}
+                                placeholder="Choose a username"
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email" className="mb-1 inline-block text-sm font-medium">
+                                Email<span className="text-red-600">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                onChange={handleChange}
+                                value={formData.email}
+                                placeholder="your@email.com"
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="password" className="mb-1 inline-block text-sm font-medium">
+                                Password<span className="text-red-600">*</span>
+                            </label>
+                            <input
+                                autoComplete="off"
+                                type="password"
+                                id="password"
+                                name="password"
+                                onChange={handleChange}
+                                value={formData.password}
+                                placeholder="Create a password"
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
                     </motion.div>
                     <motion.div variants={primaryVariants} className="mb-2 w-full">
                         <label htmlFor="location" className="mb-1 inline-block text-sm font-medium">
                             Location<span className="text-red-600">*</span>
                         </label>
-                        <input
-                            type="text"
-                            id="location"
-                            name="location"
-                            placeholder="Start typing location..."
-                            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                            value={formData.location}
-                            onChange={handleChange}
-                            autoComplete="off"
-                            required
-                        />
-                        {showDropdown && (
-                            <ul className="absolute w-[21%] bg-white border border-slate-300 z-10">
-                                {options.map((option, index) => (
-                                    <li
-                                        key={index}
-                                        className="px-2.5 py-1.5 hover:bg-slate-100 cursor-pointer"
-                                        onClick={() => handleSelectOption(option)}
-                                    >
-                                        {option}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                        <div className="relative">
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="Start typing borough..."
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                value={formData.location}
+                                onChange={handleChange}
+                                autoComplete="off"
+                                required
+                            />
+                            {showDropdown && (
+                                <ul className="absolute w-full bg-white border border-slate-300 z-10 rounded shadow-md mt-0.5">
+                                    {options.map((option, index) => (
+                                        <li
+                                            key={index}
+                                            className="px-2.5 py-1.5 hover:bg-slate-100 cursor-pointer text-gray-800"
+                                            onClick={() => handleSelectOption(option)}
+                                        >
+                                            {option}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </motion.div>
                     <motion.button
                         variants={primaryVariants}
