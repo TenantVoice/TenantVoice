@@ -37,24 +37,24 @@ class Post {
   }
 
   static async deletePost(id) {
-    const query = `DELETE FROM post WHERE id = ?`;
+    const query = `DELETE FROM posts WHERE id = ?`;
     const { rows } = await knex.raw(query, [id]);
     return rows[0];
   }
 
   static async getAllCommentByPostId(id) {
     const query = `
-    SELECT comment.*, users.username
-    FROM comment
-    JOIN users ON comment.user_id = users.id
-    WHERE comment.post_id = ?`;
+    SELECT comments.*, users.username
+    FROM comments
+    JOIN users ON comments.user_id = users.id
+    WHERE comments.post_id = ?`;
     const { rows } = await knex.raw(query, [id]);
     return rows;
   }
 
   static async updateDescription(id, description) {
-    const query = `UPDATE posts SET description=? WHERE id=?`;
-    const { rows } = await knex.raw(query, [id, description]);
+    const query = `UPDATE posts SET description=? WHERE id=? RETURNING *`;
+    const { rows } = await knex.raw(query, [description, id]);
     return rows[0];
   }
 }

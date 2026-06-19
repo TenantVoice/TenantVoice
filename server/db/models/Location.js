@@ -10,7 +10,7 @@ class Location {
   }
 
   static async getAllBorough() {
-    const query = `SELECT borough FROM location;`;
+    const query = `SELECT borough FROM locations;`;
     const { rows } = await knex.raw(query);
 
     return rows[0];
@@ -18,7 +18,7 @@ class Location {
 
   static async getAllNeighborhoodsBasedOnBorough(borough) {
     const query = `
-        SELECT neighborhood FROM location
+        SELECT neighborhood FROM locations
         WHERE borough = ?
         `;
     const { rows } = await knex.raw(query, [borough]);
@@ -27,7 +27,7 @@ class Location {
 
   static async getAllComplexBasedOnNeighborhoods(neighborhood) {
     const query = `
-        SELECT complex FROM location
+        SELECT complex FROM locations
         WHERE neighborhood = ?;
         `;
     const { rows } = await knex.raw(query, [neighborhood]);
